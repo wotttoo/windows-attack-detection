@@ -1,0 +1,130 @@
+{
+ "input_events": 616169,
+ "sys_dll_dropped": 59294,
+ "rows": 107442,
+ "groups": 373,
+ "columns": [
+  "dataset",
+  "group",
+  "label",
+  "label_malicious",
+  "label_method",
+  "provider",
+  "event_id",
+  "image",
+  "parent_image",
+  "target_image",
+  "image_path",
+  "integrity_level",
+  "user_type",
+  "logon_type",
+  "granted_access",
+  "access_mask",
+  "object_type",
+  "registry_event",
+  "module_signed",
+  "signature_status",
+  "auth_package",
+  "ticket_encryption",
+  "protocol",
+  "dst_port",
+  "dst_ip_type",
+  "network_direction",
+  "cmdline",
+  "parent_cmdline",
+  "ps_host_app",
+  "ps_text",
+  "registry",
+  "file_path",
+  "module_path",
+  "pipe",
+  "share",
+  "object_name",
+  "service",
+  "dns_query",
+  "other_text",
+  "cmd_len",
+  "cmd_entropy",
+  "cmd_has_b64",
+  "ps_len",
+  "ps_has_b64",
+  "n_dup"
+ ],
+ "hosts": 69,
+ "users": 60,
+ "domains": 24,
+ "by_label": {
+  "evtx|benign": {
+   "rows": 1380,
+   "events": 32202
+  },
+  "evtx|command-and-control": {
+   "rows": 125,
+   "events": 216
+  },
+  "evtx|credential-access": {
+   "rows": 181,
+   "events": 256
+  },
+  "evtx|defense-evasion": {
+   "rows": 175,
+   "events": 332
+  },
+  "evtx|discovery": {
+   "rows": 84,
+   "events": 137
+  },
+  "evtx|execution": {
+   "rows": 152,
+   "events": 166
+  },
+  "evtx|lateral-movement": {
+   "rows": 937,
+   "events": 1250
+  },
+  "evtx|persistence": {
+   "rows": 146,
+   "events": 262
+  },
+  "evtx|privilege-escalation": {
+   "rows": 465,
+   "events": 504
+  },
+  "mordor|benign": {
+   "rows": 88280,
+   "events": 431779
+  },
+  "mordor|command-and-control": {
+   "rows": 3649,
+   "events": 24804
+  },
+  "mordor|credential-access": {
+   "rows": 4222,
+   "events": 42634
+  },
+  "mordor|defense-evasion": {
+   "rows": 1930,
+   "events": 11212
+  },
+  "mordor|discovery": {
+   "rows": 911,
+   "events": 1337
+  },
+  "mordor|execution": {
+   "rows": 157,
+   "events": 309
+  },
+  "mordor|lateral-movement": {
+   "rows": 3946,
+   "events": 8173
+  },
+  "mordor|persistence": {
+   "rows": 226,
+   "events": 358
+  },
+  "mordor|privilege-escalation": {
+   "rows": 476,
+   "events": 944
+  }
+ }
+}
