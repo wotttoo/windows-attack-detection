@@ -1,0 +1,290 @@
+# Hạt giống để gán nhãn event độc hại (dùng bởi label_events.py)
+#
+#   cmd:    regex trên command line / đường dẫn image của process -> process đó độc hại (và lan theo cây process)
+#   script: regex trên nội dung PowerShell (ScriptBlockText, CommandLine, Payload, HostApplication)
+#           -> event đó độc hại, process powershell ghi log (ExecutionProcessId) cũng độc hại
+#   events: điều kiện trên 1 event bất kỳ:
+#             eid: [..]       EventId (tuỳ chọn)
+#             provider: re    regex trên Provider (tuỳ chọn)
+#             host: re        regex trên DvcHostname (tuỳ chọn)
+#             match: re       regex trên toàn bộ giá trị chuỗi của event
+#             field: tên      chỉ so khớp match trên trường này (vd ProcessFilePath)
+#             process: true   coi luôn process sinh ra event là độc hại
+#   skip:   true -> không gán nhãn file này (dữ liệu quá ít / không phải tấn công)
+#
+# Khoá của scenarios = tên kịch bản (tên file bỏ phần timestamp).
+
+generic:
+  cmd:
+    - '-noP\s+-sta\s+-w\s+1\s+-enc'                                    # Empire launcher
+    - '\s-e(nc(odedcommand)?)?\s+[A-Za-z0-9+/=]{200,}'                 # PowerShell base64 dài
+    - 'IO\.Compression\.DeflateStream\(\[IO\.MemoryStream\]\[Convert\]::FromBase64String'   # Covenant launcher
+    - 'Grunt\w*\.(exe|dll)'                                            # Covenant Grunt
+    - 'mimikatz'
+    - '\bRubeus\.exe'
+    - '\bSeatbelt\.exe'
+    - '\bSharpView\.exe'
+    - '\bPurpleSharp\.exe'
+    - 'Outflank-Dumpert'
+    - 'ProcessHerpaderping'
+    - 'SharpZeroLogon'
+    - 'MoveExcel\w*\.exe'
+    - '\bPsExec(64)?\.exe'
+    - 'PSEXESVC\.exe'
+    - 'reg(\.exe)?\s+save\s+HKLM\\+(sam|system|security)'
+  script:
+    - 'Invoke-Mimikatz'
+    - 'Invoke-(PSRemoting|SMBExec|PsExec|DCOM|WMI|ExecuteMSBuild|DllInjection|PSInject|InternalMonologue|BypassUAC)'
+
+# Tách nhãn command-and-control: event của implant C2 (agent Empire, Grunt Covenant...) mà chỉ là duy trì liên lạc.
+# Hành động của kịch bản (module chạy trong agent, truy cập lsass, process con, kết nối sang máy khác...) giữ tactic gốc.
+c2:
+  implant:            # process là implant: command line / image khớp mẫu này (cộng agent trong metadata, process bị implant inject)
+    - '-noP\s+-sta\s+-w\s+1\s+-enc'
+    - '\s-e(nc(odedcommand)?)?\s+[A-Za-z0-9+/=]{200,}'
+    - 'IO\.Compression\.DeflateStream\(\[IO\.MemoryStream\]\[Convert\]::FromBase64String'
+    - 'Grunt\w*\.(exe|dll)'
+  beacon:             # nội dung PowerShell của vòng lặp liên lạc (Empire agent)
+    - 'Start-Sleep'
+    - '\$script:TaskURIs|\$script:Headers|\$script:ControlServers'
+    - 'System\.Net\.WebClient|DownloadData|UploadData'
+    - '\[BitConverter\]::GetBytes\(\$\(Get-Random\)\)'
+    - '0\.\.255\s*\|\s*(ForEach-Object|%)'
+    - 'AesCryptoServiceProvider|HMACSHA256|Compare-Object \$mac'
+    - 'Remove-Variable packet|RoutingPacket|Process-Tasking|Send-Message|Get-Task|Encrypt-Bytes|Decrypt-Bytes'
+    - '^\s*Get-Random\s*$|CommandInvocation\(Get-Random\)|Get-Random -count 16'
+    - '\$S\[\$_\]|\$K\[\$_\s*%|%\s*256'                                     # RC4 của Empire
+    - 'CommandInvocation\((Compare-Object|Remove-Variable)\)'
+    - 'New-Object Byte\[\]|value="Byte\[\]"|IO\.StringWriter|Format-Table -wrap \| Out-String'  # dựng gói / trả kết quả
+    - '\.Headers\.Add\(|CommandInvocation\(Format-Table\)'
+  ports: [80, 443, 8080, 8443]   # kết nối của implant tới các cổng này = kênh C2
+  runtime:            # event "nền" của implant (agent nào cũng sinh ra) -> C2, trừ khi chạm đối tượng nhạy cảm
+    Microsoft-Windows-Sysmon: [7, 12, 22]                       # nạp DLL, tạo/xoá khoá registry, DNS
+    Microsoft-Windows-Security-Auditing: [4656, 4658, 4663, 4690, 4703]   # handle, quyền token
+  sensitive: 'lsass|\\SAM\b|\\SECURITY\b|NTDS|\\Lsa\b|samlib\.dll|vaultcli\.dll|dbghelp\.dll|dbgcore\.dll|comsvcs\.dll'
+
+scenarios:
+  # ---------------- collection
+  msf_record_mic:
+    note: Meterpreter chạy trong powershell trên WORKSTATION6, record_mic nạp DLL âm thanh
+    events:
+      - {provider: Sysmon, eid: [7], host: 'WORKSTATION6', field: ProcessFilePath, match: 'powershell\.exe', process: true}
+
+  # ---------------- credential_access
+  cmd_lsass_memory_dumpert_syscalls:
+    events:
+      - {provider: Sysmon, eid: [11], match: 'dumpert\.dmp'}
+  cmd_psexec_lsa_secrets_dump: {}
+  cmd_sam_copy_esentutl:
+    cmd: ['esentutl(\.exe)?\s+/y\s+/vss']
+  covenant_dcsync_dcerpc_drsuapi_DsGetNCChanges: &dcsync
+    events:
+      - {eid: [4662], match: '1131f6aa-9c07-11d1-f79f-00c04fc2dcd2|1131f6ad-9c07-11d1-f79f-00c04fc2dcd2|89e95b76-444d-4c62-991a-0facbeda640c'}
+  empire_dcsync_dcerpc_drsuapi_DsGetNCChanges: *dcsync
+  empire_mimikatz_backupkeys_dcerpc_smb_lsarpc: {}
+  empire_mimikatz_extract_keys: {}
+  empire_mimikatz_logonpasswords: {}
+  empire_mimikatz_lsadump_inject_protected_mode: {skip: true, note: 'không có dấu vết attacker trong log (không PowerShell, không process lạ)'}
+  empire_mimikatz_lsadump_patch: {}
+  empire_mimikatz_opth: {}
+  empire_mimikatz_sam_access: {}
+  empire_over_pth_patch_lsass: {}
+  empire_powerdump_sam_access: {}
+  empire_shell_reg_dump_sam: {}
+  empire_shell_rubeus_asktgt_createnetonly: {}
+  empire_shell_rubeus_asktgt_ptt: {}
+  psh_input_capture_promptforcreds: &psh_session
+    note: chỉ có Sysmon, không có Sysmon 1/log PowerShell -> process powershell (phiên gõ lệnh của attacker) là hạt giống
+    script: ['PromptForCredential']
+    events:
+      - {provider: Sysmon, field: ProcessFilePath, match: '\\powershell\.exe$', process: true}
+  psh_lsass_memory_dump_comsvcs:
+    cmd: ['comsvcs(\.dll)?[\s,]+#?(24|MiniDump)']
+    script: ['comsvcs(\.dll)?[\s,]+#?(24|MiniDump)']
+  psh_windows_vault_web_credentials: *psh_session
+  rdp_interactive_taskmanager_lsass_dump:
+    note: Taskmgr mở qua RDP để dump lsass
+    events:
+      - {provider: Sysmon, eid: [10], match: 'taskmgr\.exe.*lsass\.exe|lsass\.exe.*taskmgr\.exe', process: true}
+      - {provider: Sysmon, eid: [11], match: 'lsass.*\.DMP'}
+
+  # ---------------- defense_evasion
+  cmd_bitsadmin_download_psh_script:
+    cmd: ['bitsadmin(\.exe)?\s+/transfer']
+  cmd_mshta_javascript_getobject_sct:
+    cmd: ['mshta(\.exe)?"?\s+javascript:']
+  cmd_mshta_vbscript_execute_psh:
+    cmd: ['mshta(\.exe)?"?\s+vbscript:']
+  cmd_netsh_fw_mod_open_ports:
+    cmd: ['atomic testing']
+  cmd_process_herpaderping_mimiexplorer: {}
+  cmd_process_herpaderping_snippingtool: {}
+  covenant_installutil:
+    cmd: ['InstallUtil(\.exe)?\s.*\s/u\s']
+  covenant_lolbin_wuauclt_createremotethread:
+    cmd: ['wuauclt(\.exe)?\s+/UpdateDeploymentProvider']
+  empire_dllinjection_LoadLibrary_CreateRemoteThread: {}
+  empire_enable_rdp:
+    events:
+      - {provider: Sysmon, eid: [12, 13], match: 'fDenyTSConnections|UserAuthentication'}
+  empire_launcher_sct_regsvr32:
+    cmd: ['regsvr32(\.exe)?\s.*(scrobj|/i:)']
+  empire_monologue_netntlm_downgrade: {}
+  empire_powerview_ldap_ntsecuritydescriptor: {}
+  empire_psinject_PEinjection: {}
+  empire_scm_dll_hijack_ikeext:
+    events:
+      - {provider: Sysmon, eid: [7, 11], match: 'wlbsctrl\.dll'}
+  empire_wdigest_downgrade:
+    events:
+      - {provider: Sysmon, eid: [12, 13], match: 'UseLogonCredential'}
+  empire_wmic_add_user_backdoor:
+    cmd: ['net1?(\.exe)?\s+user\s+\S+\s+\S+\s+/add', 'wmic(\.exe)?\s+/node:']
+  psh_cmstp_execution_bypassuac:
+    cmd: ['cmstp(\.exe)?"?\s+/s', 'DllHost\.exe\s+/Processid:\{3E5FC7F9-9A51-4367-9063-A120244FBEC7\}']  # CMSTPLUA
+    script: ['T1218\.003']
+  psh_control_panel_execution:
+    cmd: ['calc\.cpl']
+    script: ['calc\.cpl']
+  psh_hh_local_html_payload:
+    cmd: ['T1218\.001\.chm']
+    script: ['T1218\.001']
+  psh_mavinject_dll_notepad:
+    cmd: ['mavinject']
+    script: ['mavinject|T1055\.dll']
+  psh_mshta_html_application_execution:
+    cmd: ['T1218\.005\.hta']
+    script: ['T1218\.005']
+  psh_register_cimprovider_execute_dll:
+    cmd: ['Register-CimProvider']
+    script: ['Register-CimProvider|T1218-2\.dll']
+  purplesharp_pe_injection_createremotethread: {}
+  wmic_remote_xsl_jscript:
+    cmd: ['wmic(\.exe)?\s.*/FORMAT:\S*\.xsl']
+
+  # ---------------- discovery
+  cmd_discover_iexplorer_version_registry:
+    cmd: ['reg(\.exe)?\s+query\s+"?HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Internet Explorer']
+  cmd_seatbelt_group_user: {}
+  covenant_getdomaingroup_ldap_searchrequest_domain_admins: {}
+  covenant_ldap_searchrequest_domainuser: {}
+  empire_find_localadmin_smb_svcctl_OpenSCManager: {}
+  empire_getsession_dcerpc_smb_srvsvc_NetSessEnum: {}
+  empire_shell_net_local_users: {}
+  empire_shell_net_localgroup_administrators: {}
+  empire_shell_rpc_samr_smb_group_domain_admins_standard_user: {}
+  empire_shell_samr_EnumDomainUsers: {}
+
+  # ---------------- execution
+  cmd_sharpview_pcre_net: {}
+  empire_launcher_vbs:
+    cmd: ['wscript(\.exe)?"?\s+\S*launcher\.vbs', '\\launcher\.vbs']
+  psh_powershell_httplistener: *psh_session
+  psh_python_webserver:
+    cmd: ['python\S*\s.*(http\.server|SimpleHTTPServer)']
+    script: ['http\.server|SimpleHTTPServer']
+
+  # ---------------- lateral_movement
+  covenant_com_wsman_automation:
+    cmd: ['wsmprovhost\.exe']
+  covenant_copy_smb_CreateRequest:
+    events:
+      - {provider: Sysmon, eid: [11], match: 'Grunt\w*\.exe'}
+      - {eid: [5145, 5140], match: 'Grunt\w*\.exe'}
+  covenant_dcom_executeexcel4macro_allowed:
+    cmd: ['EXCEL\.EXE"?\s+/automation\s+-Embedding']
+  covenant_dcom_executeexcel4macro_blocked:
+    cmd: ['EXCEL\.EXE"?\s+/automation\s+-Embedding']
+  covenant_dcom_iertutil_dll_hijack:
+    cmd: ['iexplore\.exe"?\s+-Embedding']
+    events:
+      - {provider: Sysmon, eid: [7, 11], match: 'Internet Explorer\\iertutil\.dll'}
+  covenant_dcom_registerxll:
+    cmd: ['EXCEL\.EXE"?\s+/automation\s+-Embedding']
+  covenant_psremoting_command:
+    cmd: ['wsmprovhost\.exe']
+  covenant_psremoting_grunt:
+    cmd: ['wsmprovhost\.exe']
+  covenant_sc_query_dcerpc_smb_svcctl:
+    cmd: ['sc(\.exe)?\s+\\\\WORKSTATION6']
+    events: &svcctl
+      - {eid: [5145], host: WORKSTATION6, match: 'svcctl'}                       # điều khiển dịch vụ từ xa
+      - {provider: 'Service Control Manager', host: WORKSTATION6, match: 'IKE and AuthIP|IKEEXT|Cyb3rWard0g'}
+  covenant_sharpsc_create_dcerpc_smb_svcctl: {events: *svcctl}
+  covenant_sharpsc_query_dcerpc_smb_svcctl: {events: *svcctl}
+  covenant_sharpsc_start_dcerpc_smb_svcctl: {events: *svcctl}
+  covenant_sharpsc_stop_dcerpc_smb_svcctl: {events: *svcctl}
+  covenant_sharpwmi_create_dcerpc_wmi: {}
+  covenant_wmi_remote_event_subscription_ActiveScriptEventConsumers:
+    cmd: ['scrcons\.exe']
+    events:
+      - {provider: 'Sysmon', eid: [19, 20, 21]}
+      - {provider: 'WMI-Activity', eid: [5861]}
+  covenant_wmi_wbemcomn_dll_hijack:
+    cmd: ['wmic(\.exe)?"?\s+/node:']
+    events:
+      - {provider: Sysmon, eid: [7, 11], match: 'wbem\\wbemcomn\.dll'}
+  empire_dcom_shellwindows_stager: {}
+  empire_msbuild_dcerpc_wmi_smb:
+    cmd: ['MSBuild\.exe"?\s+\S+\.(xml|csproj|proj)']
+  empire_psexec_dcerpc_tcp_svcctl: {}
+  empire_psremoting_stager: {}
+  empire_shell_dcerpc_smb_service_dll_hijack:
+    events:
+      - {provider: Sysmon, eid: [7, 11], match: 'wlbsctrl\.dll'}
+  empire_smbexec_dcerpc_smb_svcctl: {}
+  empire_wmi_dcerpc_wmi_IWbemServices_ExecMethod: {}
+  mimikatz_CVE-2020-1472_Unauthenticated_NetrServerAuthenticate2:
+    events:
+      - {eid: [4742], match: 'ANONYMOUS LOGON'}
+  purplesharp_ad_playbook_I:
+    events:
+      - {eid: [4625], match: 'WORKSTATION5|172\.18\.39\.5'}      # password spray
+      - {eid: [4769], match: '0x17'}                              # kerberoast (RC4)
+  schtask_create:
+    cmd: ['schtasks(\.exe)?\s+/create\s.*EventCacheManager']
+    events:
+      - {match: 'EventCacheManager'}
+  schtask_modification:
+    note: attacker dùng 1 phiên PowerShell trên WORKSTATION5 (không có log PowerShell)
+    script: ['EventCacheManager']
+    events:
+      - {match: 'EventCacheManager'}
+      - {provider: Sysmon, host: WORKSTATION5, field: ProcessFilePath, match: '\\powershell\.exe$', process: true}
+
+  # ---------------- persistence
+  cmd_userinitmprlogonscript_batch:
+    cmd: ['art\.bat']
+    events:
+      - {provider: Sysmon, eid: [12, 13], match: 'UserInitMprLogonScript'}
+  covenant_persiststartup:
+    events:
+      - {provider: Sysmon, eid: [11], match: 'Start Menu\\Programs\\Startup\\', process: true}
+  covenant_persistwmi:
+    events:
+      - {provider: Sysmon, eid: [19, 20, 21]}
+  empire_persistence_registry_modification_run_keys_elevated_user: {}
+  empire_persistence_registry_modification_run_keys_standard_user: {}
+  empire_schtasks_creation_execution_elevated_user: {}
+  empire_schtasks_creation_standard_user: {}
+  empire_wmi_local_event_subscriptions_elevated_user:
+    events:
+      - {provider: Sysmon, eid: [19, 20, 21]}
+  proxylogon_ssrf_rce_poc:
+    cmd: ['public-poc\.py']
+    events:
+      - {provider: Sysmon, eid: [1], match: 'w3wp\.exe.*(cmd|powershell)\.exe|(cmd|powershell)\.exe.*w3wp\.exe', process: true}
+      - {provider: Sysmon, eid: [11], match: '\\(owa|ecp)\\auth\\[^"]*\.aspx'}
+
+  # ---------------- privilege_escalation
+  cmd_service_mod_fax:
+    cmd: ['sc(\.exe)?\s+(config|start)\s+Fax', 'T1543\.003 Test']
+  empire_invoke_runas: {}
+  empire_uac_shellapi_fodhelper:
+    events:
+      - {provider: Sysmon, eid: [12, 13], match: 'ms-settings\\Shell\\Open\\command'}
+
+  # ---------------- other
+  raccine_samples: {skip: true}
+  raccine_simulation_mode: {skip: true}
+  purplesharp: {skip: true}

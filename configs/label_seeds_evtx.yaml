@@ -1,0 +1,229 @@
+# Luật gán nhãn cho bộ EVTX-ATTACK-SAMPLES (dùng bởi label_evtx.py)
+#
+# Bộ EVTX là các mẫu đã được tác giả lọc sẵn: phần lớn event trong một file là của kỹ thuật tấn công.
+# Vì vậy mặc định (mode: all) mọi event mang tactic của thư mục, TRỪ những event khớp luật nhiễu.
+# Với file lẫn nhiều nhiễu (log cả máy, reboot, ETW...) dùng mode: seeds -> chỉ hạt giống và những gì lan
+# ra từ hạt giống (cây process, PID, phiên đăng nhập... như Mordor) là độc hại, còn lại benign.
+#
+# Luật dạng "rule" (dùng trong noise / lab / keep / uncertain):
+#   eid: [..]          EventId
+#   match: re          regex trên toàn bộ giá trị chuỗi của event
+#   image: re          regex trên tên file của ProcessFilePath (vd 'svchost\.exe')
+#   own_machine: true  tài khoản (UserName) là tài khoản máy của chính host (vd DC1$ trên DC1)
+#   self_link_local: true  kết nối mạng từ host tới chính nó qua địa chỉ fe80:: (Src = Dst)
+#   <TênTrường>: re    regex trên trường đó (vd UserSid, DstPort, Provider)
+#   Mọi điều kiện trong một luật phải cùng thoả (AND).
+#
+# Thứ tự áp dụng cho mỗi event:  keep -> tactic;  noise -> benign;  lab/uncertain -> uncertain;  còn lại -> tactic
+# (mode: seeds: event không lan tới từ hạt giống -> benign, sau đó vẫn áp keep / uncertain / noise)
+#
+# Cấu hình từng file (khoá = đường dẫn tương đối bỏ .json, hoặc chỉ tên file):
+#   tactic: slug       đổi tactic (thư mục AutomatedTestingTools / Other không phải tactic)
+#   skip: true         không gán nhãn file này
+#   mode: seeds        + cmd / script / events: hạt giống, cùng định dạng label_seeds.yaml
+#   parent_launcher: false   không coi process cha (tạo <= 10 giây trước hạt giống) là độc hại; cần cho file có
+#                      reboot / đăng nhập lại, khi cha là services.exe, userinit.exe, winlogon.exe...
+#   noise / keep / uncertain: [rule]   luật riêng của file
+
+# ---------------------------------------------------------------- nhiễu chung -> benign
+noise:
+  # đăng nhập dịch vụ của SYSTEM / LOCAL SERVICE / NETWORK SERVICE (logon type 5, 0)
+  - {eid: [4624, 4627, 4634, 4672], UserSid: '^S-1-5-(18|19|20)$'}
+  # tài khoản máy của chính host tự đăng nhập (Kerberos nội bộ của DC...)
+  - {eid: [4624, 4627, 4634, 4672], own_machine: true}
+  # mạng nền: DNS, NetBIOS, DHCP, LLMNR, SSDP, WSD, mDNS, multicast / broadcast
+  - {eid: [3, 5156, 5158], DstPort: '^(53|67|68|137|138|546|547|1900|3702|5353|5355|5357)$'}
+  - {eid: [3, 5156], DstIpAddr: '^(ff02:|224\.|239\.|255\.255\.255\.255$|\S+\.255$)'}
+  - {eid: [5158], image: '^(svchost|dns|lsass)\.exe$'}
+  # host nói chuyện với chính nó qua địa chỉ link-local IPv6 (DC: ldap, rpc, smb nội bộ)
+  - {eid: [3, 5156], self_link_local: true}
+  # process nền không liên quan tới kỹ thuật
+  - {image: '^(UI0Detect|slui|RuntimeBroker|LocalBridge|OneDriveStandaloneUpdater|FileCoAuth|opera_autoupdate|GoogleUpdate|TiWorker|WMIADAP|MpCmdRun|MsMpEng|SearchIndexer|SearchProtocolHost|SearchFilterHost|CompatTelRunner|dxgiadaptercache|wlms|BGINFO|elastic-endpoint|Microsoft\.ActiveDirectory\.WebServices|VBoxTray|FlashPlayerUpdateService|FlashUtil\S*)\.exe$'}
+  - {eid: [1], ProcessCommandLine: 'svchost\.exe -k \S+ (-p )?-s (fdPHost|gpsvc|wcncsvc)\b'}
+  - {eid: [1], ProcessCommandLine: '(taskhost\.exe|wsqmcons\.exe).*CompatTelRunner|wsqmcons\.exe\s*$'}
+  # file / registry nền
+  - {eid: [11], FileName: '\\Tasks\\Microsoft\\Windows Defender\\|\\Windows\\Recent\\|VSApplicationInsights|NuGetScratch|\\WER\\ReportQueue\\AppCrash_sysmon'}
+  - {eid: [11], FileName: '\.evtx$'}                                     # người làm mẫu xuất log
+  - {eid: [13], RegistryKeyPath: 'Print\\Printers\\DefaultSpoolDirectory$|\\NetworkList\\Profiles\\|\\WINEVT\\Channels\\'}
+  # Sysmon tự cài đặt / đổi cấu hình
+  - {eid: [4, 16], Provider: 'Sysmon'}
+  - {image: '^Sysmon(64)?\.exe$'}
+
+# ---------------------------------------------------------------- dấu vết của người làm mẫu -> uncertain
+lab:
+  - {eid: [1102, 104], Provider: 'Eventlog'}   # xoá log trước khi chạy thử (trừ các file về xoá log, xem keep)
+
+# ---------------------------------------------------------------- từng file
+files:
+  # ======== AutomatedTestingTools: không phải tactic
+  DE_timestomp_and_dll_sideloading_and_RunPersist: {tactic: defense-evasion}
+  rundll32_cmd_schtask: {tactic: persistence, note: 'mã độc rundll32 tạo scheduled task'}
+  rundll32_hollowing_wermgr_masquerading: {tactic: defense-evasion}
+  sideloading_injection_persistence_run_key: {tactic: defense-evasion}
+  sideloading_uacbypass_rundll32_injection_c2: {tactic: defense-evasion}
+  PanacheSysmon_vs_AtomicRedTeam01: {skip: true, note: 'Atomic Red Team chạy hàng chục kỹ thuật thuộc nhiều tactic trong 1 file'}
+  panache_sysmon_vs_EDRTestingScript: {skip: true, note: 'như trên'}
+  WinDefender_Events_1117_1116_AtomicRedTeam: {skip: true, note: 'cảnh báo của Defender, không phải hành vi'}
+
+  # ======== Other
+  exec_emotet_ps_4104: {tactic: execution}
+  exec_emotet_ps_800_get-item: {tactic: execution}
+  exec_emotet_ps_800_invoke-item: {tactic: execution}
+  exec_emotet_ps_800_new-item: {tactic: execution}
+  exec_emotet_ps_800_new-object: {tactic: execution}
+  exec_emotet_sysmon_1: {tactic: execution}
+  maldoc_mshta_via_shellbrowserwind_rundll32: {tactic: execution}
+  rdpcorets_148_mst120_bluekeep_rpdscan_full:
+    tactic: discovery
+    note: 'quét BlueKeep: chỉ event mở kênh MS_T120 là dấu hiệu; còn lại là trạng thái phiên RDP bình thường -> uncertain'
+    keep:
+      - {ChannelName: '^ms_t120$'}
+    uncertain:
+      - {match: '.'}
+  Privilege Escalation/Sysmon_UACME_64:
+    noise:   # mmc.exe / consent.exe nạp DLL hệ thống có chữ ký Microsoft: hoạt động bình thường của process
+      - {eid: [7], ModulePath: '^c:\\windows\\(system32|syswow64)\\', ModuleSignature: '^Microsoft Windows$', ModuleSignatureStatus: '^Valid$'}
+  UACME_59_Sysmon: {skip: true, note: 'trùng từng byte với Privilege Escalation/UACME_59_Sysmon.evtx'}
+  Privilege Escalation/UACME_59_Sysmon:
+    noise:
+      - {eid: [10], image: '^svchost\.exe$'}
+
+  # ======== Command and Control
+  DE_RDP_Tunneling_TerminalServices-RemoteConnectionManagerOperational_1149:
+    noise:
+      - {eid: [1155, 258, 1136]}       # dịch vụ RDP khởi động / listener sẵn sàng, lặp lại theo chu kỳ
+  bits_openvpn:
+    mode: seeds
+    note: 'notepad.exe (bị inject) tạo job BITS tải ảnh imgur; còn lại là job của Google, OneDrive, Windows'
+    events:
+      - {provider: Bits-Client, match: '\b[0-9a-f]{8}\.png\b|i\.imgur\.com'}
+
+  # ======== Credential Access
+  ACL_ForcePwd_SPNAdd_User_Computer_Accounts:
+    noise:
+      - {eid: [4719, 4702]}                       # DC tự đổi audit policy / task SvcRestartTask
+      - {eid: [4662], own_machine: true}          # DC tự replicate
+  CA_PetiPotam_etw_rpc_efsr_5_6:
+    mode: seeds
+    note: 'ETW RPC của cả máy; chỉ lời gọi EFSR (MS-EFSR) là PetitPotam'
+    events:
+      - {provider: RPC, field: InterfaceUuid, match: 'c681d488-d850-11d0-8c52-00c04fd90f7e|df1941c5-fe89-4e79-bf10-463657acf44d'}
+  etw_rpc_zerologon:
+    mode: seeds
+    note: 'chỉ lời gọi Netlogon (NetrServerAuthenticate / PasswordSet) và epmapper qua TCP'
+    events:
+      - {provider: RPC, field: InterfaceUuid, match: '12345678-1234-abcd-ef00-01234567cffb'}
+      - {provider: RPC, field: Endpoint, match: '^135$'}
+  babyshark_mimikatz_powershell:
+    noise:
+      - {image: '^(unsecapp|mmc)\.exe$'}
+      - {eid: [7], image: '^svchost\.exe$'}
+      - {eid: [11], image: '^Explorer\.EXE$'}
+  ppl_bypass_ppldump_knowdll_hijack_sysmon_security:
+    noise:
+      - {eid: [10], image: '^csrss\.exe$', TargetProcessFilePath: 'DllHost'}
+      - {eid: [10], image: '^lsass\.exe$'}
+      - {eid: [10], image: '^services\.exe$', TargetProcessFilePath: 'svchost'}
+      - {eid: [12], image: '^mmc\.exe$'}
+  sysmon17_18_kekeo_tsssp_default_np:
+    noise:
+      - {image: '^wmiprvse\.exe$'}
+
+  # ======== Defense Evasion
+  DE_1102_security_log_cleared:
+    keep: [{eid: [1102]}]
+    noise:
+      - {eid: [4663], ObjectName: '\\Control\\Lsa'}
+  DE_104_system_log_cleared:
+    keep: [{eid: [104]}]
+  DE_EventLog_Service_Crashed:
+    noise: [{image: '^LogonUI\.exe$'}]
+  DE_WinEventLogSvc_Crash_System_7036:
+    noise:
+      - {eid: [7036], param1: '^(Windows Insider Service|Time Broker|TCP/IP NetBIOS Helper)$'}
+  DE_remote_eventlog_svc_crash_byt3bl33d3r_sysmon_17_1_3:
+    noise: [{image: '^Microsoft\.ActiveDirectory\.WebServices\.exe$'}]
+  DE_renamed_psexec_service_sysmon_17_18:
+    noise: [{image: '^mmc\.exe$'}]
+  de_powershell_execpolicy_changed_sysmon_13: {}
+  sideloading_wwlib_sysmon_7_1_11: {}
+  Sysmon_12_DE_AntiForensics_MRU_DeleteKey: {}
+
+  # ======== Discovery
+  dicovery_4661_net_group_domain_admins_target:
+    noise:
+      - {eid: [5140, 5145], own_machine: true}
+  discovery_bloodhound:
+    noise:
+      - {eid: [5140, 5145], ShareName: 'SYSVOL', UserName: '\$$'}
+  discovery_meterpreter_ps_cmd_process_listing_sysmon_10:
+    noise:
+      - {image: '^(launcher|opera_autoupdate)\.exe$'}
+
+  # ======== Execution
+  Exec_sysmon_meterpreter_reversetcp_msipackage:
+    noise: [{image: '^VSSVC\.exe$'}]
+  execution_evasion_visual_studio_prebuild_event:
+    mode: seeds
+    note: 'pre-build event của project Visual Studio chạy lệnh; phần build bình thường là benign'
+    parent_launcher: false
+    cmd: ['\\Temp\\tmp[0-9a-f]{32}\.exec\.cmd', 'start-process notepad']
+    events:
+      - {provider: Sysmon, eid: [11], field: FileName, match: '\\Temp\\tmp[0-9a-f]{32}\.exec\.cmd'}
+  rogue_msi_url_1040_1042:
+    mode: seeds
+    note: 'chỉ gói MSI cài từ URL; còn lại là cài đặt Office / Google / .NET bình thường'
+    events:
+      - {provider: MsiInstaller, field: param1, match: '^https?://'}
+  susp_explorer_exec_root_cmdline_@rimpq_@CyberRaiju:
+    noise: [{eid: [13], image: '^svchost\.exe$'}]
+
+  # ======== Lateral Movement
+  ImpersonateUser-via local Pass The Hash Sysmon and Security: {}
+  LM_ScheduledTask_ATSVC_target_host:
+    noise: [{eid: [4688], image: '^WmiPrvSE\.exe$'}]
+  LM_sysmon_1_12_13_3_tsclient_SharpRdp:
+    noise: [{image: '^mmc\.exe$'}]
+  LM_sysmon_3_12_13_1_SharpRDP:
+    noise: [{image: '^mmc\.exe$'}]
+  smbmap_upload_exec_sysmon:
+    noise:
+      - {eid: [12, 13], image: '^lsass\.exe$', RegistryKeyPath: 'Hvsi|Tcpip\\Parameters|TPM\\Telemetry'}
+
+  # ======== Persistence
+  persist_firefox_comhijack_sysmon_11_13_7_1: {}
+  persistence_sysmon_11_13_1_shime_appfix:
+    mode: seeds
+    note: 'log nhiều giờ, có reboot; máy còn sót persistence của các bài thử khác (uncertain)'
+    parent_launcher: false
+    cmd: ['sdbinst', 'Compatadmin', '^"?c:\\osk\.exe']
+    events:
+      - {provider: Sysmon, eid: [11, 13], match: 'AppCompatFlags\\(Custom|InstalledSDB)|\\AppPatch\\Custom\\', process: true}
+    uncertain:
+      - {eid: [1], ProcessCommandLine: '^calc\.exe$|malwr\.vbs|hello from run key|PSEXESVC|FreeSSHDService'}
+      - {eid: [11], FileName: 'wodCmdTerm'}
+  sysmon_13_1_persistence_via_winlogon_shell:
+    mode: seeds
+    note: 'mã độc a.exe đổi Winlogon Shell; phần reboot / đăng nhập lại là benign, trừ shell độc hại'
+    parent_launcher: false
+    cmd: ['\\Downloads\\a\.exe', 'BRE6BgE2JubB\.exe', '\\vbc\.exe"?\s+/stext']
+
+  # ======== Privilege Escalation
+  privesc_registry_symlink_CVE-2020-1377:
+    noise:
+      - {image: '^(LogonUI|smss|spoolsv)\.exe$'}
+  privesc_spoolsv_spl_file_write_sysmon11:
+    mode: seeds
+    note: 'có reboot giữa chừng; Npcap / FileZilla là nền'
+    parent_launcher: false
+    cmd: ['WerTrigger', 'whoami']
+    events:
+      - {provider: Sysmon, eid: [11, 13], match: 'phoneinfo\.dll|\\spool\\(drivers|PRINTERS)\\|__SKIP_'}
+      - {provider: Sysmon, eid: [7], match: 'phoneinfo\.dll', process: true}
+  privesc_unquoted_svc_sysmon_1_11:
+    mode: seeds
+    note: 'tạo C:\program.exe rồi reboot để dịch vụ vulnsvc chạy nó; phần boot là benign'
+    parent_launcher: false
+    cmd: ['\\program\.exe']
+    events:
+      - {provider: Sysmon, eid: [11], field: FileName, match: '^C:\\program\.exe$', process: true}

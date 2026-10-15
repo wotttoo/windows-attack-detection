@@ -1,0 +1,3171 @@
+{
+ "events": {
+  "Microsoft-Windows-Eventlog|104": {
+   "default": {
+    "subjectdomainname": "UserDomain",
+    "subjectusername": "UserName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Eventlog|1102": {
+   "default": {
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4610": {
+   "default": {
+    "authenticationpackagename": "LogonAuthenticationPackageName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4611": {
+   "default": {
+    "logonprocessname": "LogonProcessName",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4614": {
+   "default": {
+    "notificationpackagename": "LogonNotificationPackageName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4616": {
+   "default": {
+    "processid": "ProcessId",
+    "processname": "ProcessFilePath",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4618": {
+   "default": {
+    "computername": "ComputerName",
+    "eventid": "EventId",
+    "targetlogonid": "UserLogonId",
+    "targetuserdomain": "UserDomain",
+    "targetusername": "UserName",
+    "targetusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4622": {
+   "default": {
+    "securitypackagename": "LogonSecurityPackageName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4624": {
+   "default": {
+    "authenticationpackagename": "LogonAuthenticationPackageName",
+    "elevatedtoken": "LogonElevatedToken",
+    "impersonationlevel": "LogonImpersonationLevel",
+    "ipaddress": "SrcIpAddr",
+    "ipport": "SrcPort",
+    "keylength": "LogonKeyLength",
+    "lmpackagename": "LogonAuthenticationLanPackageName",
+    "logonguid": "UserLogonGuid",
+    "logonprocessname": "LogonProcessName",
+    "logontype": "LogonType",
+    "processid": "ProcessId",
+    "processname": "ProcessName",
+    "restrictedadminmode": "LogonRestrictedAdminMode",
+    "subjectdomainname": "UserReporterDomain",
+    "subjectlogonid": "UserReporterId",
+    "subjectusername": "UserReporterName",
+    "subjectusersid": "UserReporterSid",
+    "targetdomainname": "UserDomain",
+    "targetlinkedlogonid": "UserLinkedLogonId",
+    "targetlogonid": "UserLogonId",
+    "targetoutbounddomainname": "UserNetworkAccountDomain",
+    "targetoutboundusername": "UserNetworkAccountName",
+    "targetusername": "UserName",
+    "targetusersid": "UserSid",
+    "transmittedservices": "LogonTransmittedServices",
+    "virtualaccount": "LogonVirtualAccount",
+    "workstationname": "SrcHostName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4625": {
+   "default": {
+    "authenticationpackagename": "LogonAuthenticationPackageName",
+    "failurereason": "EventFailureReason",
+    "ipaddress": "SrcIpAddr",
+    "ipport": "SrcPort",
+    "keylength": "LogonKeyLength",
+    "lmpackagename": "LogonAuthenticationLanPackageName",
+    "logonprocessname": "LogonProcessName",
+    "logontype": "LogonType",
+    "processid": "ProcessId",
+    "processname": "ProcessFilePath",
+    "status": "EventStatus",
+    "subjectdomainname": "UserReporterDomain",
+    "subjectlogonid": "UserReporterId",
+    "subjectusername": "UserReporterName",
+    "subjectusersid": "UserReporterSid",
+    "substatus": "EventSubStatus",
+    "targetdomainname": "UserDomain",
+    "targetusername": "UserName",
+    "targetusersid": "UserSid",
+    "transmittedservices": "LogonTransmittedServices",
+    "workstationname": "SrcHostName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4626": {
+   "default": {
+    "deviceclaims": "LogonDeviceClaims",
+    "eventcounttotal": "EventCountTotal",
+    "eventidx": "EventSequenceId",
+    "logontype": "LogonType",
+    "subjectdomainname": "UserReporterDomain",
+    "subjectlogonid": "UserReporterId",
+    "subjectusername": "UserReporterName",
+    "subjectusersid": "UserReporterSid",
+    "targetdomainname": "UserDomain",
+    "targetlogonid": "UserLogonId",
+    "targetusername": "UserName",
+    "targetusersid": "UserSid",
+    "userclaims": "LogonUserClaims"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4627": {
+   "default": {
+    "eventcounttotal": "EventCountTotal",
+    "eventidx": "EventSequenceId",
+    "logontype": "LogonType",
+    "subjectdomainname": "UserReporterDomain",
+    "subjectlogonid": "UserReporterId",
+    "subjectusername": "UserReporterName",
+    "subjectusersid": "UserReporterSid",
+    "targetdomainname": "UserDomain",
+    "targetlogonid": "UserLogonId",
+    "targetusername": "UserName",
+    "targetusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4634": {
+   "default": {
+    "logontype": "LogonType",
+    "targetdomainname": "UserDomain",
+    "targetlogonid": "UserLogonId",
+    "targetusername": "UserName",
+    "targetusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4647": {
+   "default": {
+    "targetdomainname": "UserDomain",
+    "targetlogonid": "UserLogonId",
+    "targetusername": "UserName",
+    "targetusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4648": {
+   "default": {
+    "ipaddress": "SrcIpAddr",
+    "ipport": "SrcPort",
+    "logonguid": "UserLogonGuid",
+    "processid": "ProcessId",
+    "processname": "ProcessFilePath",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "TargetUserDomain",
+    "targetinfo": "TargetInfo",
+    "targetlogonguid": "TargetUserLogonGuid",
+    "targetservername": "TargetServerName",
+    "targetusername": "TargetUserName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4656": {
+   "default": {
+    "accesslist": "UserAccessList",
+    "accessmask": "ObjectAccessMask",
+    "accessreason": "ObjectAccessReason",
+    "handleid": "ObjectHandleId",
+    "objectname": "ObjectName",
+    "objectserver": "ObjectServer",
+    "objecttype": "ObjectType",
+    "privilegelist": "UserPrivilegeList",
+    "processid": "ProcessId",
+    "processname": "ProcessFilePath",
+    "resourceattributes": "ObjectResourceAttributes",
+    "restrictedsidcount": "TokenRestrictedSidCount",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "transactionid": "TransactionGuid"
+   },
+   "variants": {
+    "Key": {
+     "accesslist": "UserAccessList",
+     "accessmask": "ObjectAccessMask",
+     "accessreason": "ObjectAccessReason",
+     "handleid": "RegistryKeyHandleId",
+     "objectname": "RegistryKeyPath",
+     "objectserver": "ObjectServer",
+     "objecttype": "ObjectType",
+     "privilegelist": "UserPrivilegeList",
+     "processid": "ProcessId",
+     "processname": "ProcessFilePath",
+     "resourceattributes": "ObjectResourceAttributes",
+     "restrictedsidcount": "TokenRestrictedSidCount",
+     "subjectdomainname": "UserDomain",
+     "subjectlogonid": "UserLogonId",
+     "subjectusername": "UserName",
+     "subjectusersid": "UserSid",
+     "transactionid": "TransactionGuid"
+    },
+    "SERVICE OBJECT": {
+     "accesslist": "UserAccessList",
+     "accessmask": "ObjectAccessMask",
+     "accessreason": "ObjectAccessReason",
+     "handleid": "ServiceHandleId",
+     "objectname": "ServiceName",
+     "objectserver": "ObjectServer",
+     "objecttype": "ObjectType",
+     "privilegelist": "UserPrivilegeList",
+     "processid": "ProcessId",
+     "processname": "ProcessFilePath",
+     "resourceattributes": "ObjectResourceAttributes",
+     "restrictedsidcount": "TokenRestrictedSidCount",
+     "subjectdomainname": "UserDomain",
+     "subjectlogonid": "UserLogonId",
+     "subjectusername": "UserName",
+     "subjectusersid": "UserSid",
+     "transactionid": "TransactionGuid"
+    }
+   }
+  },
+  "Microsoft-Windows-Security-Auditing|4657": {
+   "default": {
+    "handleid": "RegistryKeyHandleId",
+    "newvalue": "RegistryValueData",
+    "newvaluetype": "RegistryValueType",
+    "objectname": "RegistryKeyPath",
+    "objectvaluename": "RegistryValueName",
+    "oldvalue": "RegistryPreviousValueData",
+    "oldvaluetype": "RegistryPreviousValueType",
+    "operationtype": "RegistryEventType",
+    "processid": "ProcessId",
+    "processname": "ProcessFilePath",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4658": {
+   "default": {
+    "handleid": "ObjectHandleId",
+    "objectserver": "ObjectServer",
+    "processid": "ProcessId",
+    "processname": "ProcessFilePath",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4659": {
+   "default": {
+    "accesslist": "ObjectAccessList",
+    "accessmask": "ObjectAccessMask",
+    "handleid": "ObjectHandleId",
+    "objectname": "ObjectName",
+    "objectserver": "ObjectServer",
+    "objecttype": "ObjectType",
+    "privilegelist": "UserPrivilegeList",
+    "processid": "ProcessId",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "transactionid": "TransactionGuid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4660": {
+   "default": {
+    "handleid": "ObjectHandleId",
+    "objectserver": "ObjectServer",
+    "processid": "ProcessId",
+    "processname": "ProcessFilePath",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "transactionid": "TransactionGuid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4661": {
+   "default": {
+    "accesslist": "ObjectAccessList",
+    "accessmask": "ObjectAccessMask",
+    "handleid": "ObjectHandleId",
+    "objectname": "ObjectName",
+    "objectserver": "ObjectServer",
+    "objecttype": "ObjectType",
+    "privilegelist": "ObjectPrivilegeList",
+    "processid": "ProcessId",
+    "processname": "ProcessFilePath",
+    "properties": "ObjectProperties",
+    "restrictedsidcount": "ObjectRestrictedSidCount",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "transactionid": "TransactionGuid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4662": {
+   "default": {
+    "accesslist": "ObjectAccessList",
+    "accessmask": "ObjectAccessMask",
+    "additionalinfo": "Additionalinfo",
+    "additionalinfo2": "Additionalinfo2",
+    "handleid": "ObjectHandleId",
+    "objectname": "ObjectName",
+    "objectserver": "ObjectServer",
+    "objecttype": "ObjectType",
+    "operationtype": "ObjectOperationType",
+    "properties": "ObjectProperties",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4663": {
+   "default": {
+    "accesslist": "UserAccessList",
+    "accessmask": "ObjectAccessMask",
+    "handleid": "ObjectHandleId",
+    "objectname": "ObjectName",
+    "objectserver": "ObjectServer",
+    "objecttype": "ObjectType",
+    "processid": "ProcessId",
+    "processname": "ProcessFilePath",
+    "resourceattributes": "ObjectResourceAttributes",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4664": {
+   "default": {
+    "filename": "FileName",
+    "linkname": "FileLinkName",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "transactionid": "TransactionId"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4665": {
+   "default": {
+    "clientdomain": "UserDomain",
+    "clientname": "UserName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4666": {
+   "default": {
+    "clientdomain": "UserDomain",
+    "clientname": "UserName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4667": {
+   "default": {
+    "clientdomain": "UserDomain",
+    "clientname": "UserName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4668": {
+   "default": {
+    "clientdomain": "UserDomain",
+    "clientname": "UserName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4670": {
+   "default": {
+    "handleid": "ObjectHandleId",
+    "newsd": "ObjectNewSd",
+    "objectname": "ObjectName",
+    "objectserver": "ObjectServer",
+    "objecttype": "ObjectType",
+    "oldsd": "ObjectOldSd",
+    "processid": "ProcessId",
+    "processname": "ProcessFilePath",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4672": {
+   "default": {
+    "privilegelist": "UserPrivilegeList",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4673": {
+   "default": {
+    "objectserver": "ObjectServer",
+    "privilegelist": "UserPrivilegeList",
+    "processid": "ProcessId",
+    "processname": "ProcessFilePath",
+    "service": "ServiceName",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4674": {
+   "default": {
+    "accessmask": "ObjectAccessMask",
+    "handleid": "ObjectHandleId",
+    "objectname": "ObjectName",
+    "objectserver": "ObjectServer",
+    "objecttype": "ObjectType",
+    "privilegelist": "ObjectPrivilegeList",
+    "processid": "ProcessId",
+    "processname": "ProcessFilePath",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4688": {
+   "default": {
+    "commandline": "ProcessCommandLine",
+    "mandatorylabel": "ProcessMandatorySid",
+    "newprocessid": "ProcessId",
+    "newprocessname": "ProcessFilePath",
+    "parentprocessname": "ProcessParentFilePath",
+    "processid": "ProcessParentId",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "TargetUserDomain",
+    "targetlogonid": "TargetUserLogonId",
+    "targetusername": "TargetUserName",
+    "targetusersid": "TargetUserSid",
+    "tokenelevationtype": "ProcessTokenElevationType"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4689": {
+   "default": {
+    "processid": "ProcessId",
+    "processname": "ProcessName",
+    "status": "EventStatus",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4690": {
+   "default": {
+    "sourcehandleid": "ObjectHandleId",
+    "sourceprocessid": "ProcessId",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targethandleid": "TargetObjectHandleId",
+    "targetprocessid": "TargetProcessId"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4691": {
+   "default": {
+    "accesslist": "ObjectAccessList",
+    "accessmask": "ObjectAccessMask",
+    "objectname": "ObjectName",
+    "objecttype": "ObjectType",
+    "processid": "ProcessId",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4692": {
+   "default": {
+    "failurereason": "EventFailureReason",
+    "masterkeyid": "MasterKeyId",
+    "recoverykeyid": "RecoveryKeyId",
+    "recoveryserver": "TargetHostName",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4693": {
+   "default": {
+    "failureid": "EventFailureReason",
+    "masterkeyid": "MasterKeyId",
+    "recoverykeyid": "RecoveryKeyId",
+    "recoveryreason": "RecoveryKeyReason",
+    "recoveryserver": "TargetHostName",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4694": {
+   "default": {
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4695": {
+   "default": {
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4696": {
+   "default": {
+    "processid": "ProcessId",
+    "processname": "ProcessFilePath",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "TargetUserDomain",
+    "targetlogonid": "TargetUserLogonId",
+    "targetprocessid": "TargetProcessId",
+    "targetprocessname": "TargetProcessFilePath",
+    "targetusername": "TargetUserName",
+    "targetusersid": "TargetUserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4697": {
+   "default": {
+    "serviceaccount": "ServiceAccountName",
+    "servicefilename": "ServiceImagePath",
+    "servicename": "ServiceName",
+    "servicestarttype": "ServiceStartType",
+    "servicetype": "ServiceType",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4698": {
+   "default": {
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "taskcontent": "ScheduledTaskContent",
+    "taskname": "ScheduledTaskName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4699": {
+   "default": {
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "taskcontent": "ScheduledTaskContent",
+    "taskname": "ScheduledTaskName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4700": {
+   "default": {
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "taskcontent": "ScheduledTaskContent",
+    "taskname": "ScheduledTaskName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4701": {
+   "default": {
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "taskcontent": "ScheduledTaskContent",
+    "taskname": "ScheduledTaskName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4702": {
+   "default": {
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "taskcontentnew": "ScheduledTaskContent",
+    "taskname": "ScheduledTaskName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4703": {
+   "default": {
+    "disabledprivilegelist": "TargetUserDisabledPrivilegeList",
+    "enabledprivilegelist": "TargetUserEnabledPrivilegeList",
+    "processid": "ProcessId",
+    "processname": "ProcessFilePath",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "TargetUserDomain",
+    "targetlogonid": "TargetUserLogonId",
+    "targetusername": "TargetUserName",
+    "targetusersid": "TargetUserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4704": {
+   "default": {
+    "privilegelist": "UserPrivilegeList",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetsid": "TargetUserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4705": {
+   "default": {
+    "privilegelist": "UserPrivilegeList",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetsid": "TargetUserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4706": {
+   "default": {
+    "domainname": "TrustName",
+    "domainsid": "TrustSid",
+    "sidfilteringenabled": "TrustFiltering",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "tdoattributes": "TrustAttributes",
+    "tdodirection": "TrustDirection",
+    "tdotype": "TrustType"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4707": {
+   "default": {
+    "domainname": "TrustDomain",
+    "domainsid": "TrustSid",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4713": {
+   "default": {
+    "kerberospolicychange": "KeberosPolicyChange",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4715": {
+   "default": {
+    "newsd": "AuditPolicySd",
+    "oldsd": "AuditPolicyPreviousSd",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4716": {
+   "default": {
+    "domainname": "TrustName",
+    "domainsid": "TrustSid",
+    "sidfilteringenabled": "TrustFiltering",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLoginId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "tdoattributes": "TrustAttributes",
+    "tdodirection": "TrustDirection",
+    "tdotype": "TrustType"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4717": {
+   "default": {
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetsid": "TargetUserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4718": {
+   "default": {
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetsid": "TargetUserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4719": {
+   "default": {
+    "auditpolicychanges": "AuditPolicyChanges",
+    "categoryid": "AuditPolicyCategoryId",
+    "subcategoryguid": "AuditPolicySubCategoryGuid",
+    "subcategoryid": "AuditPolicySubCategoryId",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4720": {
+   "default": {
+    "accountexpires": "TargetUserAccountExpires",
+    "allowedtodelegateto": "TargetUserAllowedToDelegate",
+    "displayname": "TargetUserDisplayName",
+    "homedirectory": "TargetUserHomeDirectory",
+    "homepath": "TargetUserHomePath",
+    "logonhours": "TargetUserLogonHours",
+    "newuacvalue": "TargetUserNewUacValue",
+    "olduacvalue": "TargetUserOldUacValue",
+    "passwordlastset": "TargetUserPasswordLastSet",
+    "primarygroupid": "TargetUserPrimaryGroupId",
+    "privilegelist": "UserPrivilegeList",
+    "profilepath": "TargetUserProfilePath",
+    "samaccountname": "TargetUserSamName",
+    "scriptpath": "TargetUserScriptPath",
+    "sidhistory": "TargetUserSidHistory",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "TargetUserDomain",
+    "targetsid": "TargetUserSid",
+    "targetusername": "TargetUserName",
+    "useraccountcontrol": "TargetUserAccountControl",
+    "userparameters": "TargetUserParameters",
+    "userprincipalname": "TargetUserPrincipalName",
+    "userworkstations": "TargetUserWorkstations"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4722": {
+   "default": {
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "TargetUserDomain",
+    "targetsid": "TargetUserSid",
+    "targetusername": "TargetUserName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4723": {
+   "default": {
+    "privilegelist": "UserPrivilegeList",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "TargetUserDomain",
+    "targetsid": "TargetUserSid",
+    "targetusername": "TargetUserName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4724": {
+   "default": {
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "TargetUserDomain",
+    "targetsid": "TargetUserSid",
+    "targetusername": "TargetUserName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4725": {
+   "default": {
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "TargetUserDomain",
+    "targetsid": "TargetUserSid",
+    "targetusername": "TargetUserName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4726": {
+   "default": {
+    "privilegelist": "UserPrivilegeList",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "TargetUserDomain",
+    "targetsid": "TargetUserSid",
+    "targetusername": "TargetUserName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4727": {
+   "default": {
+    "privilegelist": "UserPrivilegeList",
+    "samaccountname": "GroupSamName",
+    "sidhistory": "GroupSidHistory",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "GroupDomain",
+    "targetsid": "GroupSid",
+    "targetusername": "GroupName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4728": {
+   "default": {
+    "membername": "TargetUserName",
+    "membersid": "TargetUserSid",
+    "privilegelist": "UserPrivilegeList",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "GroupDomain",
+    "targetsid": "GroupSid",
+    "targetusername": "GroupName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4729": {
+   "default": {
+    "membername": "TargetUserName",
+    "membersid": "TargetUserSid",
+    "privilegelist": "UserPrivilegeList",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "GroupDomain",
+    "targetsid": "GroupSid",
+    "targetusername": "GroupName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4730": {
+   "default": {
+    "privilegelist": "UserPrivilegeList",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "GroupDomain",
+    "targetsid": "GroupSid",
+    "targetusername": "GroupName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4731": {
+   "default": {
+    "privilegelist": "UserPrivilegeList",
+    "samaccountname": "GroupSamName",
+    "sidhistory": "GroupSidHistory",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "GroupDomain",
+    "targetsid": "GroupSid",
+    "targetusername": "GroupName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4732": {
+   "default": {
+    "membername": "TargetUserName",
+    "membersid": "TargetUserSid",
+    "privilegelist": "UserPrivilegeList",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "GroupDomain",
+    "targetsid": "GroupSid",
+    "targetusername": "GroupName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4733": {
+   "default": {
+    "membername": "TargetUserName",
+    "membersid": "TargetUserSid",
+    "privilegelist": "UserPrivilegeList",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "GroupDomain",
+    "targetsid": "GroupSid",
+    "targetusername": "GroupName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4734": {
+   "default": {
+    "privilegelist": "UserPrivilegeList",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "GroupDomain",
+    "targetsid": "GroupSid",
+    "targetusername": "GroupName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4735": {
+   "default": {
+    "privilegelist": "UserPrivilegeList",
+    "samaccountname": "GroupSamName",
+    "sidhistory": "GroupSidHistory",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "GroupDomain",
+    "targetsid": "GroupSid",
+    "targetusername": "GroupName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4737": {
+   "default": {
+    "privilegelist": "UserPrivilegeList",
+    "samaccountname": "GroupSamName",
+    "sidhistory": "GroupSidHistory",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "GroupDomain",
+    "targetsid": "GroupSid",
+    "targetusername": "GroupName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4738": {
+   "default": {
+    "accountexpires": "TargetUserAccountExpires",
+    "allowedtodelegateto": "TargetUserAllowedToDelegate",
+    "displayname": "TargetUserDisplay",
+    "dummy": "UserAttributeDummy",
+    "homedirectory": "TargetUserHomeDirectory",
+    "homepath": "TargetUserHomePath",
+    "logonhours": "TargetUserLogonHours",
+    "newuacvalue": "TargetUserNewUacValue",
+    "olduacvalue": "TargetUserOldUacValue",
+    "passwordlastset": "TargetUserPasswordLastSet",
+    "primarygroupid": "UserPrimaryGroupId",
+    "privilegelist": "UserPrivilegeList",
+    "profilepath": "TargetUserProfilePath",
+    "samaccountname": "TargetUserSamName",
+    "scriptpath": "TargetUserScriptPath",
+    "sidhistory": "TargetUserSidHistory",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "TargetUserDomain",
+    "targetsid": "TargetUserSid",
+    "targetusername": "TargetUserName",
+    "useraccountcontrol": "TargetUserAccountControl",
+    "userparameters": "TargetUserParameters",
+    "userprincipalname": "TargetUserPrincipalName",
+    "userworkstations": "TargetUserWorkstations"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4739": {
+   "default": {
+    "domainbehaviorversion": "DomainPolicyBehaviorVersion",
+    "domainname": "DomainName",
+    "domainpolicychanged": "DomainPolicyName",
+    "domainsid": "DomainSid",
+    "forcelogoff": "NetworkSecurityPolicyForceLogoff",
+    "lockoutduration": "LockoutPolicyDuration",
+    "lockoutobservationwindow": "LockoutPolicyObservationWindow",
+    "lockoutthreshold": "LockoutPolicyThreshold",
+    "machineaccountquota": "DomainPolicyMachineAccountQuota",
+    "maxpasswordage": "PasswordPolicyMaxAge",
+    "minpasswordage": "PasswordPolicyMinAge",
+    "minpasswordlength": "PasswordPolicyMinLength",
+    "mixeddomainmode": "DomainPolicyMixedMode",
+    "passwordhistorylength": "PasswordPolicyHistoryLength",
+    "passwordproperties": "PasswordPolicyProperties",
+    "privilegelist": "UserPrivilegeList",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4740": {
+   "default": {
+    "subjectdomainname": "UserReporterDomain",
+    "subjectlogonid": "UserReporterId",
+    "subjectusername": "UserReporterName",
+    "subjectusersid": "UserReporterSid",
+    "targetdomainname": "UserDomain",
+    "targetsid": "UserSid",
+    "targetusername": "UserName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4741": {
+   "default": {
+    "accountexpires": "TargetHostAccountExpires",
+    "allowedtodelegateto": "TargetHostAllowedToDelegate",
+    "displayname": "TargetHostDisplayName",
+    "dnshostname": "TargetHostDnsHostName",
+    "homedirectory": "TargetHostHomeDirectory",
+    "homepath": "TargetHostHomePath",
+    "logonhours": "TargetHostLogonHours",
+    "newuacvalue": "TargetHostNewUacValue",
+    "olduacvalue": "TargetHostOldUacValue",
+    "passwordlastset": "TargetHostPasswordLastSet",
+    "primarygroupid": "TargetHostPrimaryGroupId",
+    "privilegelist": "UserPrivilegeList",
+    "profilepath": "TargetHostProfilePath",
+    "samaccountname": "TargetHostSamName",
+    "scriptpath": "TargetHostScriptPath",
+    "serviceprincipalnames": "TargetHostServicePrincipalNames",
+    "sidhistory": "TargetHostSidHistory",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "TargetHostDomain",
+    "targetsid": "TargetHostSid",
+    "targetusername": "TargetHostName",
+    "useraccountcontrol": "TargetHostUserAccountControl",
+    "userparameters": "TargetHostUserParemeters",
+    "userprincipalname": "TargetHostPrincipalName",
+    "userworkstations": "TargetHostWorkstations"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4742": {
+   "default": {
+    "accountexpires": "TargetHostAccountExpires",
+    "allowedtodelegateto": "TargetHostAllowedToDelegate",
+    "computeraccountchange": "ComputerAccountChange",
+    "displayname": "TargetHostDisplayName",
+    "dnshostname": "TargetHostDnsHostName",
+    "homedirectory": "TargetHostHomeDirectory",
+    "homepath": "TargetHostHomeOath",
+    "logonhours": "TargetHostLogonHours",
+    "newuacvalue": "TargetHostNewUacValue",
+    "olduacvalue": "TargetHostOldUacValue",
+    "passwordlastset": "TargetHostPasswordLastSet",
+    "primarygroupid": "HostPrimaryGroupId",
+    "privilegelist": "UserPrivilegeList",
+    "profilepath": "TargetHostProfilePath",
+    "samaccountname": "TargetHostSamName",
+    "scriptpath": "TargetHostScriptPath",
+    "serviceprincipalnames": "TargetHostServicePrincipalNames",
+    "sidhistory": "TargetHostSidHistory",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "TargetHostDomain",
+    "targetsid": "TargetHostSid",
+    "targetusername": "TargetHostName",
+    "useraccountcontrol": "TargetHostAccountControl",
+    "userparameters": "TargetHostParameters",
+    "userprincipalname": "TargetHostPrincipalName",
+    "userworkstations": "TargetHostUserWorkstations"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4743": {
+   "default": {
+    "privilegelist": "UserPrivilegeList",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "TargetHostDomain",
+    "targetsid": "TargetHostSid",
+    "targetusername": "TargetHostName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4744": {
+   "default": {
+    "privilegelist": "UserPrivilegeList",
+    "samaccountname": "GroupSamName",
+    "sidhistory": "SidHistory",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "GroupDomain",
+    "targetsid": "GroupSid",
+    "targetusername": "GroupName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4745": {
+   "default": {
+    "privilegelist": "UserPrivilegeList",
+    "samaccountname": "GroupSamName",
+    "sidhistory": "GroupSidHistory",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "GroupDomain",
+    "targetsid": "GroupSid",
+    "targetusername": "GroupName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4746": {
+   "default": {
+    "membername": "TargetUserName",
+    "membersid": "TargetUserSig",
+    "privilegelist": "UserPrivilegeList",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "GroupDomain",
+    "targetsid": "GroupSid",
+    "targetusername": "GroupName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4747": {
+   "default": {
+    "membername": "TargetUserName",
+    "membersid": "TargetUserSid",
+    "privilegelist": "UserPrivilegeList",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "GroupDomain",
+    "targetsid": "GroupSid",
+    "targetusername": "GroupName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4748": {
+   "default": {
+    "privilegelist": "UserPrivilegeList",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "GroupDomain",
+    "targetsid": "GroupSid",
+    "targetusername": "GroupName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4749": {
+   "default": {
+    "privilegelist": "UserPrivilegeList",
+    "samaccountname": "GroupSamName",
+    "sidhistory": "GroupSidHistory",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "GroupDomain",
+    "targetsid": "GroupSid",
+    "targetusername": "GroupName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4750": {
+   "default": {
+    "privilegelist": "UserPrivilegeList",
+    "samaccountname": "GroupSamName",
+    "sidhistory": "GroupSidHistory",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "GroupDomain",
+    "targetsid": "GroupSid",
+    "targetusername": "GroupName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4751": {
+   "default": {
+    "membername": "TargetUserName",
+    "membersid": "TargetUserSig",
+    "privilegelist": "UserPrivilegeList",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "GroupDomain",
+    "targetsid": "GroupSid",
+    "targetusername": "GroupName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4752": {
+   "default": {
+    "membername": "TargetUserName",
+    "membersid": "TargetUserSid",
+    "privilegelist": "UserPrivilegeList",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "GroupDomain",
+    "targetsid": "GroupSid",
+    "targetusername": "GroupName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4753": {
+   "default": {
+    "privilegelist": "UserPrivilegeList",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "GroupDomain",
+    "targetsid": "GroupSid",
+    "targetusername": "GroupName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4754": {
+   "default": {
+    "privilegelist": "UserPrivilegeList",
+    "samaccountname": "GroupSamName",
+    "sidhistory": "GroupSidHistory",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "GroupDomain",
+    "targetsid": "GroupSid",
+    "targetusername": "GroupName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4755": {
+   "default": {
+    "privilegelist": "UserPrivilegeList",
+    "samaccountname": "GroupSamName",
+    "sidhistory": "GroupSidHistory",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "GroupDomain",
+    "targetsid": "GroupSid",
+    "targetusername": "GroupName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4756": {
+   "default": {
+    "membername": "TargetUserName",
+    "membersid": "TargetUserSid",
+    "privilegelist": "UserPrivilegeList",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "GroupDomain",
+    "targetsid": "GroupSid",
+    "targetusername": "GroupName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4757": {
+   "default": {
+    "membername": "TargetUserName",
+    "membersid": "TargetUserSid",
+    "privilegelist": "UserPrivilegeList",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "GroupDomain",
+    "targetsid": "GroupSid",
+    "targetusername": "GroupName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4758": {
+   "default": {
+    "privilegelist": "UserPrivilegeList",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "GroupDomain",
+    "targetsid": "GroupSid",
+    "targetusername": "GroupName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4759": {
+   "default": {
+    "privilegelist": "UserPrivilegeList",
+    "samaccountname": "GroupSamName",
+    "sidhistory": "GroupSidHistory",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "GroupDomain",
+    "targetsid": "GroupSid",
+    "targetusername": "GroupName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4760": {
+   "default": {
+    "privilegelist": "UserPrivilegeList",
+    "samaccountname": "GroupSamName",
+    "sidhistory": "GroupSidHistory",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "GroupDomain",
+    "targetsid": "GroupSid",
+    "targetusername": "GroupName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4761": {
+   "default": {
+    "membername": "TargetUserName",
+    "membersid": "TargetUserSig",
+    "privilegelist": "UserPrivilegeList",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "GroupDomain",
+    "targetsid": "GroupSid",
+    "targetusername": "GroupName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4762": {
+   "default": {
+    "membername": "TargetUserName",
+    "membersid": "TargetUserSid",
+    "privilegelist": "UserPrivilegeList",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "GroupDomain",
+    "targetsid": "GroupSid",
+    "targetusername": "GroupName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4763": {
+   "default": {
+    "privilegelist": "UserPrivilegeList",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "GroupDomain",
+    "targetsid": "GroupSid",
+    "targetusername": "GroupName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4764": {
+   "default": {
+    "grouptypechange": "GroupTypeChange",
+    "privilegelist": "UserPrivilegeList",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "GroupDomain",
+    "targetsid": "GroupSid",
+    "targetusername": "GroupName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4767": {
+   "default": {
+    "subjectdomainname": "UserReporterDomain",
+    "subjectlogonid": "UserReporterId",
+    "subjectusername": "UserReporterName",
+    "subjectusersid": "UserReporterSid",
+    "targetdomainname": "UserDomain",
+    "targetsid": "UserSid",
+    "targetusername": "UserName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4768": {
+   "default": {
+    "certissuername": "CertificateIssuer",
+    "certserialnumber": "CertificateSerialNumber",
+    "certthumbprint": "CertificateHashSha1",
+    "ipaddress": "SrcIpAddr",
+    "ipport": "SrcPort",
+    "preauthtype": "TicketPreAuthType",
+    "servicename": "ServiceName",
+    "servicesid": "ServiceSid",
+    "status": "TicketStatus",
+    "targetdomainname": "UserDomain",
+    "targetsid": "UserSid",
+    "targetusername": "UserName",
+    "ticketencryptiontype": "TicketEncryptionType",
+    "ticketoptions": "TicketOptions"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4769": {
+   "default": {
+    "ipaddress": "SrcIpAddr",
+    "ipport": "SrcPort",
+    "logonguid": "UserLogonGuid",
+    "servicename": "ServiceName",
+    "servicesid": "ServiceSid",
+    "status": "TicketStatus",
+    "targetdomainname": "UserDomain",
+    "targetusername": "UserName",
+    "ticketencryptiontype": "TicketEncryption",
+    "ticketoptions": "TicketOptions",
+    "transmittedservices": "LogonTransmittedServices"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4770": {
+   "default": {
+    "ipaddress": "SrcIpAddr",
+    "ipport": "SrcPort",
+    "servicename": "ServiceName",
+    "servicesid": "ServiceId",
+    "targetdomainname": "UserDomain",
+    "targetusername": "UserName",
+    "ticketencryptiontype": "TicketEncryptionType",
+    "ticketoptions": "TicketOptions"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4771": {
+   "default": {
+    "certissuername": "CertificateIssuer",
+    "certserialnumber": "CertificateSerialNumber",
+    "certthumbprint": "CertificateHashSha1",
+    "ipaddress": "SrcIpAddr",
+    "ipport": "SrcPort",
+    "preauthtype": "TicketPreAuthType",
+    "servicename": "ServiceName",
+    "status": "TicketStatus",
+    "targetsid": "UserSid",
+    "targetusername": "UserName",
+    "ticketoptions": "TicketOptions"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4774": {
+   "default": {
+    "clientusername": "UserName",
+    "mappedname": "TargetUserName",
+    "mappingby": "LogonAuthenticationPackageName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4776": {
+   "default": {
+    "packagename": "LogonAuthenticationPackageName",
+    "status": "EventStatus",
+    "targetusername": "UserName",
+    "workstation": "SrcHostName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4778": {
+   "default": {
+    "accountdomain": "UserDomain",
+    "accountname": "UserName",
+    "clientaddress": "SrcIpAddr",
+    "clientname": "SrcHostName",
+    "logonid": "UserLogonId",
+    "sessionname": "SessionName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4779": {
+   "default": {
+    "accountdomain": "UserDomain",
+    "accountname": "UserName",
+    "clientaddress": "SrcIpAddr",
+    "clientname": "SrcHostName",
+    "logonid": "UserLogonId",
+    "sessionname": "SessionName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4781": {
+   "default": {
+    "newtargetusername": "TargetUserNewName",
+    "oldtargetusername": "TargetUserOldName",
+    "privilegelist": "UserPrivilegeList",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "TargetUserDomain",
+    "targetsid": "TargetUserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4782": {
+   "default": {
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "TargetUserDomain",
+    "targetusername": "TargetUserName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4793": {
+   "default": {
+    "status": "EventStatus",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetusername": "TargetUserName",
+    "workstation": "SourceHostName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4794": {
+   "default": {
+    "status": "EventStatus",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "workstation": "SourceHostName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4797": {
+   "default": {
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "TargetUserDomain",
+    "targetusername": "TargetUserName",
+    "workstation": "SourceHostName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4798": {
+   "default": {
+    "callerprocessid": "ProcessId",
+    "callerprocessname": "ProcessFilePath",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserLogonId",
+    "targetdomainname": "TargetUserDomain",
+    "targetsid": "TargetUserSid",
+    "targetusername": "TargetUserName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4799": {
+   "default": {
+    "callerprocessid": "ProcessId",
+    "callerprocessname": "ProcessFilePath",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserLogonId",
+    "targetdomainname": "GroupDomain",
+    "targetsid": "GroupSid",
+    "targetusername": "GroupName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4800": {
+   "default": {
+    "sessionid": "UserSessionId",
+    "targetdomainname": "UserDomain",
+    "targetlogonid": "UserLogonId",
+    "targetusername": "UserName",
+    "targetusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4801": {
+   "default": {
+    "sessionid": "UserSessionId",
+    "targetdomainname": "UserDomain",
+    "targetlogonid": "UserLogonId",
+    "targetusername": "UserName",
+    "targetusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4802": {
+   "default": {
+    "sessionid": "UserSessionId",
+    "targetdomainname": "UserDomain",
+    "targetlogonid": "UserLogonId",
+    "targetusername": "UserName",
+    "targetusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4803": {
+   "default": {
+    "sessionid": "UserSessionId",
+    "targetdomainname": "UserDomain",
+    "targetlogonid": "UserLogonId",
+    "targetusername": "UserName",
+    "targetusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4817": {
+   "default": {
+    "newsd": "ObjectNewSd",
+    "objectname": "ObjectName",
+    "objectserver": "ObjectServer",
+    "objecttype": "ObjectType",
+    "oldsd": "ObjectOldSd",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4818": {
+   "default": {
+    "accessreason": "AccessReason",
+    "handleid": "ObjectHandleId",
+    "objectname": "FilePath",
+    "objectserver": "ObjectServer",
+    "objecttype": "ObjectType",
+    "processid": "ProcessId",
+    "processname": "ProcessFilePath",
+    "stagingreason": "StagingReason",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4819": {
+   "default": {
+    "addedcaps": "CapAdded",
+    "asiscaps": "CapUnmodified",
+    "deletedcaps": "CapDeleted",
+    "modifiedcaps": "CapModified",
+    "objectserver": "ObjectServer",
+    "objecttype": "ObjectType",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4825": {
+   "default": {
+    "accountdomain": "UserDomain",
+    "accountname": "UserName",
+    "clientaddress": "SrcIpAddr",
+    "logonid": "UserLogonId"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4826": {
+   "default": {
+    "advancedoptions": "AdvancedOptions",
+    "configaccesspolicy": "ConfigAccessPolicy",
+    "disableintegritychecks": "DisableIntegrityChecks",
+    "flightsigning": "FlightSigning",
+    "hypervisordebug": "HypervisorDebug",
+    "hypervisorlaunchtype": "HypervisorLaunchType",
+    "hypervisorloadoptions": "HypervisorLoadOptions",
+    "kerneldebug": "KernelDebug",
+    "loadoptions": "LoadOptions",
+    "remoteeventlogging": "RemoteEventLogging",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "testsigning": "TestSigning",
+    "vsmlaunchtype": "VsmLaunchType"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4865": {
+   "default": {
+    "dnsname": "DstHostName",
+    "domainsid": "DomainSid",
+    "entrytype": "ForestEntryType",
+    "flags": "ForestFlags",
+    "forestroot": "ForestRoot",
+    "forestrootsid": "ForestSid",
+    "netbiosname": "NetbiosName",
+    "operationid": "OperationId",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "toplevelname": "ForestTopLevelName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4866": {
+   "default": {
+    "dnsname": "DnsName",
+    "domainsid": "DomainSid",
+    "entrytype": "ForestEntryType",
+    "flags": "ForestFlags",
+    "forestroot": "ForestRoot",
+    "forestrootsid": "ForestSid",
+    "netbiosname": "NetbiosName",
+    "operationid": "OperationId",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "toplevelname": "ForestTopLevelName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4867": {
+   "default": {
+    "dnsname": "DnsName",
+    "domainsid": "DomainSid",
+    "entrytype": "ForestEntryType",
+    "flags": "ForestFlags",
+    "forestroot": "ForestRoot",
+    "forestrootsid": "ForestSid",
+    "netbiosname": "NetbiosName",
+    "operationid": "OperationId",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLoginId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "toplevelname": "ForestTopLevelName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4902": {
+   "default": {
+    "puacount": "AuditPolicyUsersCount",
+    "puapolicyid": "AuditPolicyId"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4904": {
+   "default": {
+    "auditsourcename": "AuditPolicySource",
+    "eventsourceid": "AuditPolicySourceId",
+    "processid": "ProcessId",
+    "processname": "ProcessFilePath",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4905": {
+   "default": {
+    "auditsourcename": "EventSourceName",
+    "eventsourceid": "EventSourceId",
+    "processid": "ProcessId",
+    "processname": "ProcessFilePath",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4906": {
+   "default": {
+    "crashonauditfailvalue": "AuditPolicyCrashOnAuditFailValue"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4907": {
+   "default": {
+    "handleid": "ObjectHandleId",
+    "newsd": "ObjectNewSd",
+    "objectname": "ObjectName",
+    "objectserver": "ObjectServer",
+    "objecttype": "ObjectType",
+    "oldsd": "ObjectOldSd",
+    "processid": "ProcessId",
+    "processname": "ProcessFilePath",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4908": {
+   "default": {
+    "sidlist": "AuditPolicySidList"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4911": {
+   "default": {
+    "handleid": "ObjectHandleId",
+    "newsd": "ObjectNewSd",
+    "objectname": "FilePath",
+    "objectserver": "ObjectServer",
+    "objecttype": "ObjectType",
+    "oldsd": "ObjectOldSd",
+    "processid": "ProcessId",
+    "processname": "ProcessFilePath",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4912": {
+   "default": {
+    "auditpolicychanges": "AuditPolicyChanges",
+    "categoryid": "AuditPolicyCategoryId",
+    "subcategoryguid": "AuditPolicySubcategoryGuid",
+    "subcategoryid": "AuditPolicySubcategoryId",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetusersid": "TargetUserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4913": {
+   "default": {
+    "handleid": "ObjectHandleId",
+    "newsd": "ObjectNewSd",
+    "objectname": "FilePath",
+    "objectserver": "ObjectServer",
+    "objecttype": "ObjectType",
+    "oldsd": "ObjectOldSd",
+    "processid": "ProcessId",
+    "processname": "ProcessFilePath",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4928": {
+   "default": {
+    "destinationdra": "DestinatonDra",
+    "namingcontext": "NamingContext",
+    "options": "Options",
+    "sourceaddr": "SourceAddr",
+    "sourcedra": "SourceDra",
+    "statuscode": "StatusCode"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4929": {
+   "default": {
+    "destinationdra": "DestinationDra",
+    "namingcontext": "NamingContext",
+    "options": "Options",
+    "sourceaddr": "SourceAddr",
+    "sourcedra": "SourceDra",
+    "statuscode": "StatusCode"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4930": {
+   "default": {
+    "destinationdra": "DestinationDra",
+    "namingcontext": "NamingContext",
+    "options": "Options",
+    "sourceaddr": "SourceAddr",
+    "sourcedra": "SourceDra",
+    "statuscode": "StatusCode"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4931": {
+   "default": {
+    "destinationdra": "DestinationDra",
+    "namingcontext": "NamingContext",
+    "options": "Options",
+    "sourceaddr": "SourceAddr",
+    "sourcedra": "SourceDra",
+    "statuscode": "StatusCode"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4932": {
+   "default": {
+    "destinationdra": "DestinationDra",
+    "namingcontext": "NamingContext",
+    "options": "Options",
+    "sessionid": "SessionId",
+    "sourcedra": "SourceDra",
+    "startusn": "StartUsn"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4933": {
+   "default": {
+    "destinationdra": "DestinationDra",
+    "endusn": "EndUsn",
+    "namingcontext": "NamingContext",
+    "options": "Options",
+    "sessionid": "SessionId",
+    "sourcedra": "SourceDra",
+    "statuscode": "StatusCode"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4935": {
+   "default": {
+    "auditstatuscode": "AuditStatusCode",
+    "replicationevent": "ReplicationEvent"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4944": {
+   "default": {
+    "grouppolicyapplied": "GroupPolicyApplied",
+    "logdroppedpacketsenabled": "LogDroppedPacketsEnabled",
+    "logsuccessfulconnectionsenabled": "LogSuccessfulConnectionsEnabled",
+    "multicastflowsenabled": "MulticastFlowsEnabled",
+    "operationmode": "OperationMode",
+    "profile": "Profile",
+    "remoteadminenabled": "RemoteAdminEnabled"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4945": {
+   "default": {
+    "profileused": "ProfileUsed",
+    "ruleid": "RuleId",
+    "rulename": "RuleName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4946": {
+   "default": {
+    "profilechanged": "ProfileChanged",
+    "ruleid": "RuleId",
+    "rulename": "RuleName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4947": {
+   "default": {
+    "profilechanged": "ProfileChanged",
+    "ruleid": "RuleId",
+    "rulename": "RuleName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4948": {
+   "default": {
+    "profilechanged": "ProfileChanged",
+    "ruleid": "RuleId",
+    "rulename": "RuleName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4950": {
+   "default": {
+    "profilechanged": "ProfileChanged",
+    "settingtype": "SettingType",
+    "settingvalue": "SettingValue"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4951": {
+   "default": {
+    "profile": "Profile",
+    "ruleid": "RuleId",
+    "rulename": "RuleName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4953": {
+   "default": {
+    "profile": "Profile",
+    "reasonforrejection": "ReasonForRejection",
+    "ruleid": "RuleId",
+    "rulename": "RuleName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4956": {
+   "default": {
+    "activeprofile": "ActiveProfile"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4957": {
+   "default": {
+    "ruleattr": "RuleAttr",
+    "ruleid": "RuleId",
+    "rulename": "RuleName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4964": {
+   "default": {
+    "logonguid": "UserLogonGuid",
+    "sidlist": "TargetUserSidList",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetdomainname": "TargetUserDomain",
+    "targetlogonguid": "TargetUserLogonGuid",
+    "targetlogonid": "TargetUserLogonId",
+    "targetusername": "TargetUserName",
+    "targetusersid": "TargetUserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|4985": {
+   "default": {
+    "newstate": "TransactionNewState",
+    "processid": "ProcessId",
+    "processname": "ProcessFilePath",
+    "resourcemanager": "TransactionResourceManager",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "transactionid": "TransactionGuid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|5027": {
+   "default": {
+    "errorcode": "ErrorCode"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|5028": {
+   "default": {
+    "errorcode": "ErrorCode"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|5031": {
+   "default": {
+    "application": "ProcessFilePath"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|5051": {
+   "default": {
+    "filename": "FileName",
+    "processid": "ProcessId",
+    "processname": "ProcessName",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserLogonId",
+    "virtualfilename": "FileVirtualName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|5058": {
+   "default": {
+    "algorithmname": "KeyAlgorithmName",
+    "keyfilepath": "KeyPath",
+    "keyname": "KeyName",
+    "keytype": "KeyType",
+    "operation": "KeyOperation",
+    "providername": "KeyProviderName",
+    "returncode": "KeyReturnCode",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|5059": {
+   "default": {
+    "algorithmname": "KeyAlgorithmName",
+    "keyname": "KeyName",
+    "keytype": "KeyType",
+    "operation": "KeyOperation",
+    "providername": "KeyProviderName",
+    "returncode": "KeyReturnCode",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|5061": {
+   "default": {
+    "algorithmname": "KeyAlgorithmName",
+    "keyname": "KeyName",
+    "keytype": "KeyType",
+    "operation": "KeyOperation",
+    "providername": "KeyProviderName",
+    "returncode": "KeyReturnCode",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|5136": {
+   "default": {
+    "appcorrelationid": "DsoperationAppCorrelationId",
+    "attributeldapdisplayname": "DsobjectAttributeName",
+    "attributesyntaxoid": "DsobjectAttributeType",
+    "attributevalue": "DsobjectAttributeValue",
+    "dsname": "HostDomain",
+    "dstype": "DsobjectDomainType",
+    "objectclass": "DsobjectClass",
+    "objectdn": "DsobjectDn",
+    "objectguid": "DsobjectGuid",
+    "opcorrelationid": "DsoperationCorrelationId",
+    "operationtype": "DsoperationType",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|5137": {
+   "default": {
+    "appcorrelationid": "DsoperationAppCorrelationId",
+    "dsname": "HostDomain",
+    "dstype": "DsobjectDomainType",
+    "objectclass": "DsobjectClass",
+    "objectdn": "DsobjectDn",
+    "objectguid": "DsobjectGuid",
+    "opcorrelationid": "DsoperationCorrelationId",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|5138": {
+   "default": {
+    "appcorrelationid": "DsoperationAppCorrelationId",
+    "dsname": "HostDomain",
+    "dstype": "DsobjectDomainType",
+    "newobjectdn": "DsobjectNewDn",
+    "objectclass": "DsobjectClass",
+    "objectguid": "DsobjectGuid",
+    "oldobjectdn": "DsobjectDn",
+    "opcorrelationid": "DsoperationCorrelationId",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|5139": {
+   "default": {
+    "appcorrelationid": "DsoperationAppCorrelationId",
+    "dsname": "HostDomain",
+    "dstype": "DsobjectDomainType",
+    "newobjectdn": "DsobjectNewDn",
+    "objectclass": "DsobjectClass",
+    "objectguid": "DsobjectGuid",
+    "oldobjectdn": "DsobjectOldDn",
+    "opcorrelationid": "DsoperationCorrelationId",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|5140": {
+   "default": {
+    "accesslist": "UserAccessList",
+    "accessmask": "ShareAccessMask",
+    "ipaddress": "SrcIpAddr",
+    "ipport": "SrcPort",
+    "objecttype": "ObjectType",
+    "sharelocalpath": "ShareLocalPath",
+    "sharename": "ShareName",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|5141": {
+   "default": {
+    "appcorrelationid": "DsoperationAppCorrelationId",
+    "dsname": "HostDomain",
+    "dstype": "DsobjectDomainType",
+    "objectclass": "DsobjectClass",
+    "objectdn": "DsobjectDn",
+    "objectguid": "DsobjectGuid",
+    "opcorrelationid": "DsoperationCorrelationId",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|5142": {
+   "default": {
+    "sharelocalpath": "ShareLocalPath",
+    "sharename": "ShareName",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|5143": {
+   "default": {
+    "newmaxusers": "ShareNewMaxUsers",
+    "newremark": "ShareNewRemark",
+    "newsd": "ShareNewSd",
+    "newshareflags": "ShareNewFlags",
+    "objecttype": "ObjectType",
+    "oldmaxusers": "ShareOldMaxUsers",
+    "oldremark": "ShareOldRemark",
+    "oldsd": "ShareOldSd",
+    "oldshareflags": "ShareOldFlags",
+    "sharelocalpath": "ShareLocalPath",
+    "sharename": "ShareName",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|5144": {
+   "default": {
+    "sharelocalpath": "ShareLocalPath",
+    "sharename": "ShareName",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|5145": {
+   "default": {
+    "accesslist": "UserAccessList",
+    "accessmask": "ShareAccessMask",
+    "accessreason": "UserAccessReason",
+    "ipaddress": "SrcIpAddr",
+    "ipport": "SrcPort",
+    "objecttype": "ObjectType",
+    "relativetargetname": "ShareRelativeTargetName",
+    "sharelocalpath": "ShareLocalPath",
+    "sharename": "ShareName",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|5152": {
+   "default": {
+    "application": "ProcessFilePath",
+    "destaddress": "DstIpAddr",
+    "destport": "DstPort",
+    "direction": "NetworkDirection",
+    "processid": "ProcessId",
+    "protocol": "NetworkProtocol",
+    "sourceaddress": "SrcIpAddr",
+    "sourceport": "SrcPort"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|5154": {
+   "default": {
+    "application": "ProcessFilePath",
+    "processid": "ProcessId",
+    "protocol": "NetworkProtocol",
+    "sourceaddress": "SrcIpAddr",
+    "sourceport": "SrcPort"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|5155": {
+   "default": {
+    "application": "ProcessFilePath",
+    "processid": "ProcessId",
+    "protocol": "NetworkProtocol",
+    "sourceaddress": "SrcIpAddr",
+    "sourceport": "SrcPort"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|5156": {
+   "default": {
+    "application": "ProcessFilePath",
+    "destaddress": "DstIpAddr",
+    "destport": "DstPort",
+    "processid": "ProcessId",
+    "protocol": "NetworkProtocol",
+    "sourceaddress": "SrcIpAddr",
+    "sourceport": "SrcPort"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|5157": {
+   "default": {
+    "application": "ProcessFilePath",
+    "destaddress": "DstIpAddr",
+    "destport": "DstPort",
+    "processid": "ProcessId",
+    "protocol": "NetworkProtocol",
+    "sourceaddress": "SrcIpAddr",
+    "sourceport": "SrcPort"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|5158": {
+   "default": {
+    "application": "ProcessFilePath",
+    "processid": "ProcessId",
+    "protocol": "NetworkProtocol",
+    "sourceaddress": "SrcIpAddr",
+    "sourceport": "SrcPort"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|5159": {
+   "default": {
+    "application": "ProcessFilePath",
+    "processid": "ProcessId",
+    "protocol": "NetworkProtocol",
+    "sourceaddress": "SrcIpAddr",
+    "sourceport": "SrcPort"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|5168": {
+   "default": {
+    "configurednames": "ConfiguredNames",
+    "errorcode": "ErrorCode",
+    "ipaddresses": "IpAddresses",
+    "servernames": "ServerNames",
+    "spnname": "SpnName",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|5376": {
+   "default": {
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|5377": {
+   "default": {
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|5378": {
+   "default": {
+    "credtype": "UserCredType",
+    "package": "LogonSecurityPackageName",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetserver": "TargetServerName",
+    "userupn": "UserIdentity"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|5379": {
+   "default": {
+    "clientprocessid": "ProcessId",
+    "countofcredentialsreturned": "CredentialReadReturnedCount",
+    "processcreationtime": "ProcessCreationTime",
+    "readoperation": "ObjectOperationType",
+    "returncode": "CredentialsReadReturnedCode",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "targetname": "CredentialsRead",
+    "type": "CredentialsReadType"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|5447": {
+   "default": {
+    "action": "Action",
+    "calloutkey": "CalloutKey",
+    "calloutname": "CalloutName",
+    "changetype": "ChangeType",
+    "conditions": "Conditions",
+    "filterid": "FilterId",
+    "filterkey": "FilterKey",
+    "filtername": "FilterName",
+    "filtertype": "FilterType",
+    "layerid": "LayerId",
+    "layerkey": "LayerKey",
+    "layername": "LayerName",
+    "processid": "ProcessId",
+    "providerkey": "ProviderKey",
+    "providername": "ProviderName",
+    "username": "UserName",
+    "usersid": "UserSid",
+    "weight": "Weight"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|5632": {
+   "default": {
+    "eaperrorcode": "EventErrorCodeEap",
+    "eapreasoncode": "EventReasonCodeEap",
+    "eaprootcausestring": "EventRootCauseStringEap",
+    "errorcode": "EventErrorCode",
+    "identity": "UserIdentity",
+    "intfguid": "HostInterfaceGuid",
+    "localmac": "HostLocalMac",
+    "peermac": "HostPeerMac",
+    "reasoncode": "EventReasonCode",
+    "reasontext": "EventReasonText",
+    "ssid": "WirelessSsid",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|5633": {
+   "default": {
+    "errorcode": "EventErrorCode",
+    "identity": "UserIdentity",
+    "interfacename": "HostInterfaceName",
+    "reasoncode": "EventReasonCode",
+    "reasontext": "EventReasonText",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|5888": {
+   "default": {
+    "modifiedobjectproperties": "ObjectModifiedProperties",
+    "objectcollectionname": "ObjectCollectionName",
+    "objectidentifyingproperties": "ObjectIdentifyingProperties",
+    "subjectlogonid": "UserLogonId",
+    "subjectuserdomainname": "UserDomain",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|5889": {
+   "default": {
+    "objectcollectionname": "ObjectCollectionName",
+    "objectidentifyingproperties": "ObjectIdentifyingProperties",
+    "objectproperties": "ObjectProperties",
+    "subjectlogonid": "UserLogonId",
+    "subjectuserdomainname": "UserDomain",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|5890": {
+   "default": {
+    "objectcollectionname": "ObjectCollectionName",
+    "objectidentifyingproperties": "ObjectIdentifyingProperties",
+    "objectproperties": "ObjectProperties",
+    "subjectlogonid": "UserLogonId",
+    "subjectuserdomainname": "UserDomain",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|6144": {
+   "default": {
+    "errorcode": "ErrorCode",
+    "gpolist": "GpoList"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|6145": {
+   "default": {
+    "errorcode": "ErrorCode",
+    "gpolist": "GpoList"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|6416": {
+   "default": {
+    "classid": "ClassId",
+    "classname": "ClassName",
+    "compatibleids": "CompatibleIds",
+    "devicedescription": "DeviceDescription",
+    "deviceid": "DeviceId",
+    "locationinformation": "LocationInformation",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid",
+    "vendorids": "VendorIds"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|6419": {
+   "default": {
+    "classid": "ClassId",
+    "classname": "ClassName",
+    "compatibleids": "CompatibleIds",
+    "devicedescription": "DeviceDescription",
+    "deviceid": "DeviceId",
+    "hardwareids": "HardwareIds",
+    "locationinformation": "LocationInformation",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|6420": {
+   "default": {
+    "classid": "ClassId",
+    "classname": "ClassName",
+    "compatibleids": "CompatibleIds",
+    "devicedescription": "DeviceDescription",
+    "deviceid": "DeviceId",
+    "hardwareids": "HardwareIds",
+    "locationinformation": "LocationInformation",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|6421": {
+   "default": {
+    "classid": "ClassId",
+    "classname": "ClassName",
+    "compatibleids": "CompatibleIds",
+    "devicedescription": "DeviceDescription",
+    "deviceid": "DeviceId",
+    "hardwareids": "HardwareIds",
+    "locationinformation": "LocationInformation",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|6422": {
+   "default": {
+    "classid": "ClassId",
+    "classname": "ClassName",
+    "compatibleids": "CompatibleIds",
+    "devicedescription": "DeviceDescription",
+    "deviceid": "DeviceId",
+    "hardwareids": "HardwareIds",
+    "locationinformation": "LocationInformation",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Security-Auditing|6423": {
+   "default": {
+    "classid": "ClassId",
+    "classname": "ClassName",
+    "compatibleids": "CompatibleIds",
+    "devicedescription": "DeviceDescription",
+    "deviceid": "DeviceId",
+    "hardwareids": "HardwareIds",
+    "locationinformation": "LocationInformation",
+    "subjectdomainname": "UserDomain",
+    "subjectlogonid": "UserLogonId",
+    "subjectusername": "UserName",
+    "subjectusersid": "UserSid"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Sysmon|1": {
+   "default": {
+    "commandline": "ProcessCommandLine",
+    "company": "FileCompany",
+    "currentdirectory": "ProcessFileDirectory",
+    "description": "FileDescription",
+    "fileversion": "FileVersion",
+    "image": "ProcessFilePath",
+    "integritylevel": "ProcessIntegrityLevel",
+    "logonguid": "UserLogonGuid",
+    "logonid": "UserLogonId",
+    "originalfilename": "FileNameOriginal",
+    "parentcommandline": "ProcessParentCommandLine",
+    "parentimage": "ProcessParentFilePath",
+    "parentprocessguid": "ProcessParentGuid",
+    "parentprocessid": "ProcessParentId",
+    "parentuser": "ActingUserName",
+    "processguid": "ProcessGuid",
+    "processid": "ProcessId",
+    "product": "FileProduct",
+    "rulename": "Tag",
+    "terminalsessionid": "UserSessionId",
+    "user": "UserName",
+    "utctime": "EventCreationTime"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Sysmon|10": {
+   "default": {
+    "calltrace": "ProcessCallTrace",
+    "grantedaccess": "ProcessGrantedAccess",
+    "rulename": "Tag",
+    "sourceimage": "ProcessFilePath",
+    "sourceprocessguid": "ProcessGuid",
+    "sourceprocessid": "ProcessId",
+    "sourcethreadid": "ThreadId",
+    "targetimage": "TargetProcessFilePath",
+    "targetprocessguid": "TargetProcessGuid",
+    "targetprocessid": "TargetProcessId",
+    "utctime": "EventCreationTime"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Sysmon|11": {
+   "default": {
+    "creationutctime": "FileCreationTime",
+    "image": "ProcessFilePath",
+    "processguid": "ProcessGuid",
+    "processid": "ProcessId",
+    "rulename": "Tag",
+    "targetfilename": "FileName",
+    "user": "UserName",
+    "utctime": "EventCreationTime"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Sysmon|12": {
+   "default": {
+    "eventtype": "EventType",
+    "image": "ProcessFilePath",
+    "processguid": "ProcessGuid",
+    "processid": "ProcessId",
+    "rulename": "Tag",
+    "targetobject": "RegistryKeyPath",
+    "user": "UserName",
+    "utctime": "EventCreationTime"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Sysmon|13": {
+   "default": {
+    "details": "RegistryValueData",
+    "eventtype": "RegistryEventType",
+    "image": "ProcessFilePath",
+    "processguid": "ProcessGuid",
+    "processid": "ProcessId",
+    "rulename": "Tag",
+    "targetobject": "RegistryKeyPath",
+    "user": "UserName",
+    "utctime": "EventCreationTime"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Sysmon|14": {
+   "default": {
+    "eventtype": "EventType",
+    "image": "ProcessFilePath",
+    "newname": "RegistryKeyNewName",
+    "processguid": "ProcessGuid",
+    "processid": "ProcessId",
+    "rulename": "Tag",
+    "targetobject": "RegistryPath",
+    "user": "UserName",
+    "utctime": "EventCreationTime"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Sysmon|15": {
+   "default": {
+    "creationutctime": "FileCreationTime",
+    "image": "ProcessFilePath",
+    "processguid": "ProcessGuid",
+    "processid": "ProcessId",
+    "rulename": "Tag",
+    "targetfilename": "FileName",
+    "utctime": "EventCreationTime"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Sysmon|16": {
+   "default": {
+    "configuration": "SysmonConfiguration",
+    "configurationfilehash": "SysmonConfigurationHash",
+    "utctime": "EventCreationTime"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Sysmon|17": {
+   "default": {
+    "eventtype": "EventType",
+    "image": "ProcessFilePath",
+    "pipename": "PipeName",
+    "processguid": "ProcessGuid",
+    "processid": "ProcessId",
+    "rulename": "Tag",
+    "user": "UserName",
+    "utctime": "EventCreationTime"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Sysmon|18": {
+   "default": {
+    "eventtype": "EventType",
+    "image": "ProcessFilePath",
+    "pipename": "PipeName",
+    "processguid": "ProcessGuid",
+    "processid": "ProcessId",
+    "rulename": "Tag",
+    "user": "UserName",
+    "utctime": "EventCreationTime"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Sysmon|19": {
+   "default": {
+    "eventnamespace": "WmiNamespace",
+    "eventtype": "EventType",
+    "name": "WmiFilterName",
+    "operation": "WmiOperation",
+    "query": "WmiQuery",
+    "rulename": "Tag",
+    "user": "UserName",
+    "utctime": "EventCreationTime"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Sysmon|2": {
+   "default": {
+    "creationutctime": "FileCreationTime",
+    "image": "ProcessFilePath",
+    "previouscreationutctime": "FilePreviousCreationTime",
+    "processguid": "ProcessGuid",
+    "processid": "ProcessId",
+    "rulename": "Tag",
+    "targetfilename": "FileName",
+    "user": "UserName",
+    "utctime": "EventCreationTime"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Sysmon|20": {
+   "default": {
+    "destination": "WmiConsumerDestination",
+    "eventtype": "EventType",
+    "name": "WmiConsumerName",
+    "operation": "WmiOperation",
+    "rulename": "Tag",
+    "type": "WmiConsumerType",
+    "user": "UserName",
+    "utctime": "EventCreationTime"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Sysmon|21": {
+   "default": {
+    "consumer": "WmiConsumerPath",
+    "eventtype": "EventType",
+    "filter": "WmiFilterPath",
+    "operation": "WmiOperation",
+    "rulename": "Tag",
+    "user": "UserName",
+    "utctime": "EventCreationTime"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Sysmon|22": {
+   "default": {
+    "image": "ProcessFilePath",
+    "processguid": "ProcessGuid",
+    "processid": "ProcessId",
+    "queryname": "DstHostName",
+    "queryresults": "DnsResponseName",
+    "querystatus": "DnsResponseCode",
+    "rulename": "Tag",
+    "user": "UserName",
+    "utctime": "EventCreationTime"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Sysmon|23": {
+   "default": {
+    "image": "ProcessFilePath",
+    "processguid": "ProcessGuid",
+    "processid": "ProcessId",
+    "rulename": "Tag",
+    "targetfilename": "FileName",
+    "user": "UserName",
+    "utctime": "EventCreationTime"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Sysmon|26": {
+   "default": {
+    "image": "ProcessFilePath",
+    "processguid": "ProcessGuid",
+    "processid": "ProcessId",
+    "rulename": "Tag",
+    "targetfilename": "FileName",
+    "user": "UserName",
+    "utctime": "EventCreationTime"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Sysmon|3": {
+   "default": {
+    "destinationhostname": "DstDvcHostname",
+    "destinationip": "DstIpAddr",
+    "destinationisipv6": "DstIpIsIpv6",
+    "destinationport": "DstPort",
+    "destinationportname": "DstPortName",
+    "image": "ProcessFilePath",
+    "initiated": "NetworkInitiated",
+    "processguid": "ProcessGuid",
+    "processid": "ProcessId",
+    "protocol": "NetworkProtocol",
+    "rulename": "Tag",
+    "sourcehostname": "SrcDvcHostname",
+    "sourceip": "SrcIpAddr",
+    "sourceisipv6": "SrcIpIsIpv6",
+    "sourceport": "SrcPort",
+    "sourceportname": "SrcPortName",
+    "user": "UserName",
+    "utctime": "EventCreationTime"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Sysmon|4": {
+   "default": {
+    "schemaversion": "SysmonSchemaVersion",
+    "state": "ServiceState",
+    "utctime": "EventCreationTime",
+    "version": "FileVersion"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Sysmon|5": {
+   "default": {
+    "image": "ProcessFilePath",
+    "processguid": "ProcessGuid",
+    "processid": "ProcessId",
+    "rulename": "Tag",
+    "user": "ActorUserName",
+    "utctime": "EventCreationTime"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Sysmon|6": {
+   "default": {
+    "imageloaded": "DriverLoaded",
+    "rulename": "Tag",
+    "signature": "DriverSignature",
+    "signaturestatus": "DriverSignatureStatus",
+    "signed": "DriverIsSigned",
+    "utctime": "EventCreationTime"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Sysmon|7": {
+   "default": {
+    "company": "FileCompany",
+    "description": "FileDescription",
+    "fileversion": "FileVersion",
+    "image": "ProcessFilePath",
+    "imageloaded": "ModulePath",
+    "originalfilename": "FileNameOriginal",
+    "processguid": "ProcessGuid",
+    "processid": "ProcessId",
+    "product": "FileProduct",
+    "rulename": "Tag",
+    "signature": "ModuleSignature",
+    "signaturestatus": "ModuleSignatureStatus",
+    "signed": "ModuleIsSigned",
+    "user": "ActorUserName",
+    "utctime": "EventCreationTime"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Sysmon|8": {
+   "default": {
+    "newthreadid": "ThreadNewId",
+    "rulename": "Tag",
+    "sourceimage": "ProcessFilePath",
+    "sourceprocessguid": "ProcessGuid",
+    "sourceprocessid": "ProcessId",
+    "startaddress": "ThreadStartAddress",
+    "startfunction": "ThreadStartFunction",
+    "startmodule": "ThreadStartModule",
+    "targetimage": "TargetProcessFilePath",
+    "targetprocessguid": "TargetProcessGuid",
+    "targetprocessid": "TargetProcessId",
+    "utctime": "EventCreationTime"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-Sysmon|9": {
+   "default": {
+    "device": "TargetDevice",
+    "image": "ProcessFilePath",
+    "processguid": "ProcessGuid",
+    "processid": "ProcessId",
+    "rulename": "Tag",
+    "user": "UserName",
+    "utctime": "EventCreationTime"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-WMI-Activity|5857": {
+   "default": {
+    "hostprocess": "ProcessName",
+    "processid": "ProcessId",
+    "providerpath": "ModuleLoaded"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-WMI-Activity|5858": {
+   "default": {
+    "operation": "WmiQuery"
+   },
+   "variants": {}
+  },
+  "Microsoft-Windows-WMI-Activity|5860": {
+   "default": {
+    "processid": "ProcessId",
+    "query": "WmiQuery"
+   },
+   "variants": {}
+  },
+  "PowerShell|400": {
+   "default": {
+    "commandline": "PowershellCommandLine",
+    "commandname": "PowershellCommandName",
+    "commandpath": "PowershellCommandPath",
+    "commandtype": "PowershellCommandType",
+    "engineversion": "PowershellEngineVersion",
+    "hostapplication": "PowershellHostApplication",
+    "hostid": "PowershellHostId",
+    "hostname": "PowershellHostName",
+    "hostversion": "PowershellHostVersion",
+    "newenginestate": "PowershellNewEngineState",
+    "pipelineid": "PowershellPipelineId",
+    "previousenginestate": "PowershellPreviousEngineState",
+    "runspaceid": "PowershellRunspaceId",
+    "scriptname": "PowershellScriptName",
+    "sequencenumber": "PowershellSequenceNumber"
+   },
+   "variants": {}
+  },
+  "PowerShell|403": {
+   "default": {
+    "commandline": "PowershellCommandLine",
+    "commandname": "PowershellCommandName",
+    "commandpath": "PowershellCommandPath",
+    "commandtype": "PowershellCommandType",
+    "engineversion": "PowershellEngineVersion",
+    "hostapplication": "PowershellHostApplication",
+    "hostid": "PowershellHostId",
+    "hostname": "PowershellHostName",
+    "hostversion": "PowershellHostVersion",
+    "newenginestate": "PowershellNewEngineState",
+    "pipelineid": "PowershellPipelineId",
+    "previousenginestate": "PowershellPreviousEngineState",
+    "runspaceid": "PowershellRunspaceId",
+    "scriptname": "PowershellScriptName",
+    "sequencenumber": "PowershellSequenceNumber"
+   },
+   "variants": {}
+  },
+  "PowerShell|600": {
+   "default": {
+    "commandline": "PowershellCommandLine",
+    "commandname": "PowershellCommandName",
+    "commandpath": "PowershellCommandPath",
+    "commandtype": "PowershellCommandType",
+    "engineversion": "PowershellEngineVersion",
+    "hostapplication": "PowershellHostApplication",
+    "hostid": "PowershellHostId",
+    "hostname": "PowershellHostName",
+    "hostversion": "PowershellHostVersion",
+    "newproviderstate": "PowershellNewProviderState",
+    "pipelineid": "PowershellPipelineId",
+    "providername": "EventProviderName",
+    "runspaceid": "PowershellRunspaceId",
+    "scriptname": "PowershellScriptName",
+    "sequencenumber": "PowershellSequenceNumber"
+   },
+   "variants": {}
+  }
+ },
+ "harmonized": {
+  "DstPortNumber": "DstPort",
+  "ProcessParentPath": "ProcessParentFilePath",
+  "ProcessPath": "ProcessFilePath",
+  "SrcPortNumber": "SrcPort",
+  "TargetProcessPath": "TargetProcessFilePath"
+ }
+}
