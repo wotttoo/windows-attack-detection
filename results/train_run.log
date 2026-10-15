@@ -1,0 +1,74 @@
+107442 dòng, 373 group, tactic: ['command-and-control', 'credential-access', 'defense-evasion', 'discovery', 'execution', 'lateral-movement', 'persistence', 'privilege-escalation']
+  cv 1: train 100239 dòng, test 7203 dòng, 150s
+  cv 2: train 76020 dòng, test 31422 dòng, 110s
+  cv 3: train 96674 dòng, test 10768 dòng, 116s
+  cv 4: train 69688 dòng, test 37754 dòng, 107s
+  cv 5: train 87147 dòng, test 20295 dòng, 112s
+cv: F1 0.890, báo nhầm 3.50%, tactic 0.353 (596s)
+  mix 1: train 106324 dòng, test 1118 dòng, 141s
+  mix 2: train 106488 dòng, test 954 dòng, 144s
+  mix 3: train 106880 dòng, test 562 dòng, 141s
+  mix 4: train 106944 dòng, test 498 dòng, 145s
+  mix 5: train 106929 dòng, test 513 dòng, 134s
+mix: F1 0.739, báo nhầm 3.97%, tactic 0.284 (705s)
+model cuối -> models (155s)
+
+# Kết quả train
+
+Dữ liệu: 107442 dòng, 373 group. Feature hành vi (behavior.py) + TF-IDF, Logistic Regression 2 bước.
+
+Chỉ số "dòng" tính trên dòng đã khử trùng; "event" có trọng số n_dup (số event gốc). Báo nhầm = tỉ lệ event benign bị báo độc hại (ngưỡng 0.5).
+
+
+## Tóm tắt (theo event)
+
+| Đánh giá | Event độc hại | PR-AUC | Precision | Recall | F1 | Báo nhầm | Tactic macro-F1 |
+|---|---|---|---|---|---|---|---|
+| GroupKFold 5 fold theo group | 92,894 | 0.945 | 0.844 | 0.942 | 0.890 | 3.50% | 0.353 |
+| Train Mordor + 4/5 file EVTX → test file EVTX còn lại | 3,123 | 0.832 | 0.669 | 0.826 | 0.739 | 3.97% | 0.284 |
+
+Theo dòng (sau khử trùng):
+
+| Đánh giá | PR-AUC | ROC-AUC | Precision | Recall | F1 | Tactic macro-F1 |
+|---|---|---|---|---|---|---|
+| cv | 0.936 | 0.981 | 0.836 | 0.902 | 0.868 | 0.396 |
+| mix | 0.944 | 0.908 | 0.878 | 0.857 | 0.867 | 0.287 |
+
+## F1 theo tactic (event)
+
+| Tactic | cv | mix |
+|---|---|---|
+| command-and-control | 0.854 | 0.076 |
+| credential-access | 0.629 | 0.230 |
+| defense-evasion | 0.088 | 0.181 |
+| discovery | 0.061 | 0.056 |
+| execution | 0.085 | 0.293 |
+| lateral-movement | 0.696 | 0.569 |
+| persistence | 0.213 | 0.302 |
+| privilege-escalation | 0.201 | 0.565 |
+
+## File có nhiều event báo nhầm nhất
+
+- **cv:** `mordor:purplesharp_ad_playbook_I` (4304), `mordor:proxylogon_ssrf_rce_poc` (3533), `mordor:empire_persistence_registry_modification_run_keys_standard_user` (1956), `evtx:bits_openvpn` (1172), `mordor:empire_scm_dll_hijack_ikeext` (1130)
+- **mix:** `evtx:bits_openvpn` (1119), `evtx:persistence_sysmon_11_13_1_shime_appfix` (93), `evtx:execution_evasion_visual_studio_prebuild_event` (13), `evtx:sysmon_13_1_persistence_via_winlogon_shell` (9), `evtx:privesc_unquoted_svc_sysmon_1_11` (7)
+
+## Feature quan trọng nhất (model cuối, hệ số dương lớn nhất của LR)
+
+**binary:** `cat__img_class_office`, `cat__provider_RemoteDesktopServices-RdpCoreTS`, `t_obj__\run`, `cat__event_id_4688`, `t_obj__\ru`, `cat__img_class_browser`, `cat__event_id_4826`, `cat__provider_PowerShell`, `cat__granted_access_n_0x101400`, `cat__img_loc_temp`, `cat__granted_access_n_0x1014c0`, `cat__event_id_2011`, `t_obj__\star`, `t_obj__.png `, `t_obj__png `, `cat__provider_MSSQLSERVER`, `t_obj__.png`, `t_obj__png`, `t_obj__run`, `cat__event_id_4648`, `cat__user_type_admin`, `num__f_encoded`, `cat__access_mask_n_0x2d`, `t_obj__=1 `, `t_obj__art `
+
+**tactic:command-and-control:** `cat__event_id_12`, `cat__protocol_udp`, `cat__provider_TerminalServices-RemoteConnectionManager`, `cat__port_class_web`, `cat__registry_event_`, `num__f_download`, `cat__event_id_6`, `cat__img_loc_user_profile`, `cat__img_class_sensitive`, `cat__port_class_rdp`, `t_ps__e="by`, `t_ps__"by`, `t_ps__"byte`, `t_ps__="byt`, `t_ps__="by`, `t_ps__"byt`, `cat__img_class_unknown_system`, `cat__port_class_kerberos`, `cat__provider_Bits-Client`, `t_ps__byte[`, `t_ps__te[`, `t_ps__yte[]`, `t_ps__yte[`, `t_ps__te[]`, `cat__event_id_22`
+
+**tactic:credential-access:** `num__k_appinit_lsa`, `t_ps__m.obj`, `t_ps__m.ob`, `t_ps__m.o`, `t_ps__em.ob`, `t_ps__em.o`, `t_ps__tem.o`, `cat__img_class_compiler`, `t_ps__.obje`, `t_ps__.obj`, `t_ps__.ob`, `num__f_cred_dump_file`, `cat__port_class_kerberos`, `cat__granted_access_n_0x1400`, `cat__event_id_18456`, `num__b_lsass_target`, `cat__access_mask_n_0x20`, `cat__access_mask_n_0x2`, `t_obj__ols `, `cat__pc_pair_sensitive>remote_host`, `t_obj__bj1`, `num__k_services`, `t_proc__/user`, `t_proc__ /us`, `t_proc__/use`
+
+**tactic:defense-evasion:** `cat__event_id_4826`, `cat__user_type_admin`, `cat__event_id_4985`, `cat__event_id_4720`, `t_ps__comob`, `t_ps__como`, `t_ps__omobj`, `t_ps__omob`, `t_ps__mobj`, `t_ps__mob`, `t_ps__mobje`, `t_ps__omo`, `t_ps__.__co`, `t_ps__em.__`, `t_ps__em._`, `t_ps__m.__c`, `t_ps__m.__`, `t_ps__m._`, `t_ps__.__`, `t_ps__.__c`, `t_ps__tem._`, `t_ps____com`, `t_ps____co`, `t_ps___como`, `cat__img_class_unknown_program`
+
+**tactic:discovery:** `cat__img_class_kernel`, `cat__event_id_4799`, `cat__img_loc_other`, `t_obj__ d:`, `cat__access_mask_n_0x12019f`, `cat__img_loc_user_profile`, `t_ps__---`, `t_ps__----`, `t_ps__-----`, `cat__img_class_admin_tool`, `cat__port_class_ldap`, `t_obj__d: `, `cat__target_class_admin_tool`, `t_proc__user `, `t_proc__ser `, `cat__event_id_6`, `t_obj__sam`, `cat__event_id_5379`, `cat__provider_RemoteDesktopServices-RdpCoreTS`, `cat__img_class_sensitive`, `t_proc__ use`, `t_proc__ user`, `cat__access_mask_n_0x2d`, `cat__event_id_4661`, `t_proc__ us`
+
+**tactic:execution:** `cat__img_loc_programdata`, `cat__port_class_other_high`, `t_obj__r>/ap`, `t_obj__er>/a`, `t_obj__r>/a`, `cat__img_class_script_host`, `t_obj__m.m`, `num__f_shadow_copy`, `num__k_services`, `cat__event_id_2`, `cat__event_id_4690`, `cat__target_class_lolbin`, `t_proc__exec`, `cat__parent_class_shell_ui`, `t_proc__xec`, `cat__pc_pair_shell_ui>lolbin`, `cat__granted_access_n_0x1f1fff`, `t_obj__ser>/`, `t_obj__r>/`, `t_obj__er>/`, `cat__img_class_shell_ui`, `t_obj__help`, `num__k_task_dir`, `t_obj__elp`, `t_obj__e.psm`
+
+**tactic:lateral-movement:** `cat__img_class_remote_host`, `cat__img_class_office`, `cat__img_loc_temp`, `cat__access_mask_n_0x100081`, `cat__img_class_browser`, `t_obj__run`, `cat__registry_event_createkey`, `cat__pc_pair_shell_ui>shell`, `cat__port_class_winrm`, `cat__event_id_5145`, `cat__event_id_4648`, `num__f_hidden_ps`, `cat__granted_access_n_0x40`, `cat__event_id_4658`, `cat__img_loc_program_files`, `cat__object_type_sc_manager object`, `t_obj__er\r`, `t_obj__r\r`, `cat__ticket_encryption_0x17`, `t_obj__\run`, `cat__provider_WinRM`, `t_obj__dab`, `t_obj__aba`, `num__k_startup_dir`, `t_obj__\ru`
+
+**tactic:persistence:** `num__f_wmi_sub`, `t_obj__tmp`, `num__cmd_entropy`, `cat__granted_access_n_0x1014c0`, `t_proc__ /r`, `t_obj__>.<d`, `t_obj__>.<do`, `t_obj__mp1`, `cat__port_class_web`, `num__f_iex`, `t_obj__1.p`, `t_obj__.<dom`, `t_obj__.<d`, `t_obj__.<do`, `t_proc__aus`, `t_obj__p\t`, `cat__img_class_interpreter`, `num__f_reg_write`, `cat__pc_pair_unknown_nopath>unknown_nopath`, `t_proc__ /c`, `cat__user_type_system`, `cat__pc_pair_unknown_nopath>compiler`, `t_proc__/c `, `t_proc__ /c `, `t_obj__>.<`
+
+**tactic:privilege-escalation:** `cat__img_class_uac_autoelevate`, `cat__port_class_other_low`, `cat__target_class_uac_autoelevate`, `cat__pc_pair_svc_host>admin_tool`, `cat__user_type_machine`, `num__f_service_cfg`, `t_obj__t\s`, `cat__port_class_smb`, `cat__event_id_4105`, `t_obj__dhc`, `t_obj__ives`, `t_obj__ves`, `cat__parent_class_uac_autoelevate`, `t_proc__.ms`, `t_obj__/te`, `num__k_uac_bypass`, `t_obj__pe\`, `t_obj__dows `, `t_obj__ows `, `cat__event_id_15`, `t_obj__ws `, `t_obj__rive`, `t_proc__msc`, `cat__provider_Security-Auditing`, `t_obj__.dl`
+
